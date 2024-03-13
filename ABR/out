@@ -1,0 +1,37 @@
+Ce programme fonctionne selon plusieurs modes distincts :
+- avec deux arguments, il effectue un test consistant à répéter aléatoirement des ajouts dans l'arbre et des suppressions.
+  Les arguments correspondent dans l'ordre à :
+  - la graine utilisée pour les tirages aléatoires
+  - le nombre d'opérations réalisées (ajouts ou goupes de suppressions)
+- sans arguments il se met en mode interactif, avec un arbre initialement vide, et accepte les commandes suivantes :
+  - defaut : fabrique un petit arbre utilisé par défaut
+  - add number [ number ...] : ajoute à l'arbre les nombres donnés, dans l'ordre
+  - find number [ number ...] : recherche dans l'arbre les nombres donnés, dans l'ordre
+  - print : affiche l'arbre sous forme parenthésée
+  - dot fichier : sauve un affichage de l'arbre au format dot dans le fichier de nom donné
+  - iter : utilise un itérateur pour parcourir et afficher les éléments contenus dans l'arbre
+  - start : crée un itérateur persistant pour l'arbre
+  - next : fait avancer l'itérateur persistant et affiche l'élément récupéré
+  - remove : supprime de l'arbre le dernier élément récupéré via l'itérateur persistant
+Parent : 588
+Suppression de 313 remplacé par 569 case 2
+Parent : 569
+Suppression de 317 remplacé par 562 case 2
+Parent : 569
+Suppression de 562 remplacé par null case 1
+Parent : 588
+Suppression de 978 remplacé par null case 1
+Parent : 588
+Suppression de 569 remplacé par 99 case 1
+Parent : null
+Suppression de 588 remplacé par 99 case 1
+Parent : 99
+Suppression de 6 remplacé par null case 1
+Parent : 99
+Suppression de 302 remplacé par 854 case 2
+Parent : 99
+Suppression de 854 remplacé par 955 case 2
+Parent : null
+Exception in thread "main" java.lang.NullPointerException
+	at ArbreBinaireDeRechercheConcret$ArbreIterator.remove(ArbreBinaireDeRechercheConcret.java:128)
+	at TestABR.main(TestABR.java:132)

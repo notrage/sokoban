@@ -1,0 +1,54 @@
+Arbre : 
+liste : []
+Ajout de 321
+Arbre : 321
+liste : [321]
+Ajout de 303
+Arbre : (303,321,)
+liste : [303, 321]
+Ajout de 560
+Arbre : (303,321,560)
+liste : [303, 321, 560]
+Ajout de 90
+Arbre : ((90,303,),321,560)
+liste : [90, 303, 321, 560]
+Ajout de 215
+Arbre : (((,90,215),303,),321,560)
+liste : [90, 215, 303, 321, 560]
+Ajout de 17
+Arbre : (((17,90,215),303,),321,560)
+liste : [17, 90, 215, 303, 321, 560]
+Ajout de 165
+Arbre : (((17,90,(165,215,)),303,),321,560)
+liste : [17, 90, 165, 215, 303, 321, 560]
+Ajout de 356
+Arbre : (((17,90,(165,215,)),303,),321,(356,560,))
+liste : [17, 90, 165, 215, 303, 321, 356, 560]
+Ajout de 402
+Arbre : (((17,90,(165,215,)),303,),321,((,356,402),560,))
+liste : [17, 90, 165, 215, 303, 321, 356, 402, 560]
+Ajout de 647
+Arbre : (((17,90,(165,215,)),303,),321,((,356,402),560,647))
+liste : [17, 90, 165, 215, 303, 321, 356, 402, 560, 647]
+Ajout de 320
+Arbre : (((17,90,(165,215,)),303,320),321,((,356,402),560,647))
+liste : [17, 90, 165, 215, 303, 320, 321, 356, 402, 560, 647]
+Suppression de 17
+Suppression de 17 case 1
+Suppression de 90
+Suppression de 90 case 2
+Suppression de 303
+Suppression de 303 case 2
+Suppression de 356
+Suppression de 356 case 2
+Suppression de 560
+Suppression de 560 case 2
+Arbre : ((215,320,),321,(402,647,))
+liste : [165, 215, 320, 321, 402, 647]
+Ajout de 357
+Echec de la vérification de l'ABR, incohérence en position 1
+Echec de la vérification de l'ABR, incohérence en position 2
+Echec de la vérification de l'ABR, incohérence en position 3
+Echec de la vérification de l'ABR, incohérence en position 4
+Echec de la vérification de l'ABR, incohérence en position 5
+Echec de la vérification de l'ABR, incohérence en position 6
