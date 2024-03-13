@@ -1,15 +1,15 @@
 package Controleur;
 
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.Point2D;
 import javax.swing.Timer;
 
 import Vue.InterfaceGraphique;
 
 public class Animation implements ActionListener {
     InterfaceGraphique inter;
-    Point2D depart, arrivee;
+    Point depart, arrivee;
     int n_etape;
     int max_etape;
     Timer timer;
@@ -20,20 +20,19 @@ public class Animation implements ActionListener {
         max_etape = 20;
     }
 
-    public Point2D depart() {
+    public Point depart() {
         return depart;
     }
 
-    public Point2D arrivee() {
+    public Point arrivee() {
         return arrivee;
     }
 
     public boolean animationEnCours() {
-        //System.out.println("n_etape:" + n_etape);
         return n_etape >= 0;
     }
 
-    public void nouvelleAnimation(Point2D d, Point2D a) {
+    public void nouvelleAnimation(Point d, Point a) {
         if (!animationEnCours()) {
             n_etape = 0;
             timer = new Timer(15, this);
@@ -60,5 +59,13 @@ public class Animation implements ActionListener {
             timer.stop();
         }
         inter.repaint();
+    }
+
+    public void stop() {
+        if (timer != null && timer.isRunning()) {
+            timer.stop();
+            n_etape = -1;
+        }
+
     }
 }

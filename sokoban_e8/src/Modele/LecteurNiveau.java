@@ -20,7 +20,6 @@ public class LecteurNiveau {
 			return null;
 		}
 		while (ligne.length() > 0) {
-			// System.out.println("[" + ligne + "]");
 			if (ligne.charAt(0) == ';') {
 				int j=1;
 				while (ligne.charAt(j) == ' ') {

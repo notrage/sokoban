@@ -1,40 +1,49 @@
 package Controleur;
-import Global.Configuration;
-import Modele.Jeu;
-import Vue.NiveauGraphique;
 
-import java.awt.Point;
+import Global.Configuration;
+import Modele.Coup;
+import Modele.Jeu;
+import Vue.InterfaceGraphique;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class AdaptateurSouris extends MouseAdapter {
-	NiveauGraphique inter;
+	InterfaceGraphique inter;
 	Jeu jeu;
-	Animation animations;
+	Animation animationPousseur, animationCaisse;
 
-	public AdaptateurSouris(NiveauGraphique n, Jeu j, Animation a) {
-		inter = n;
+	public AdaptateurSouris(InterfaceGraphique i, Jeu j, Animation pousseur, Animation caisse) {
+		inter = i;
 		jeu = j;
-		animations = a;
+		animationPousseur = pousseur;
+		animationCaisse = caisse;
+	}
+
+	void deplace(int l, int c) {
+		System.out.println(l + " "+ c);
+		if (!animationPousseur.animationEnCours() && !animationCaisse.animationEnCours()) {
+			if (jeu.deplace(l, c)) {
+				Coup dernierCoup = jeu.dernierCoup();
+				animationPousseur.nouvelleAnimation(dernierCoup.departPousseur(), dernierCoup.arriveePousseur());
+				if (dernierCoup.aCaisse()) {
+					animationCaisse.nouvelleAnimation(dernierCoup.departCaisse(), dernierCoup.arriveeCaisse());
+				}
+				inter.repaint();
+			}
+		}
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		int x = e.getX() / inter.largeurCase();
-		int y = e.getY() / inter.hauteurCase();
-		Configuration.instance().logger().info("Clic dans la case (" + x + ", " + y +")");
+		if (inter.ng().isIArunning()) return;
+		int x = e.getX() / inter.ng().largeurCase();
+		int y = e.getY() / inter.ng().hauteurCase();
 		int dX = x - jeu.pousseurC();
 		int dY = y - jeu.pousseurL();
-		int sum = dX+dY;
-		sum = sum*sum;
-		if ((dX*dY == 0) && (sum == 1)) {
-			Point depart = new Point(jeu.pousseurC(), jeu.pousseurL());
-			jeu.deplace(dY, dX);
-			Point arrivee = new Point(jeu.pousseurC(), jeu.pousseurL());
-			if (!depart.equals(arrivee)) {
-				animations.nouvelleAnimation(depart, arrivee);
-				inter.repaint();
-			}
+		int sum = dX + dY;
+		Configuration.instance().logger().info("Clic dans la case (" + x + ", " + y + ") soit une direction : " + dX + ", " + dY);
+		if ((dX * dY == 0) && (sum * sum == 1)) {
+			deplace(dY, dX);
 		}
 	}
 }

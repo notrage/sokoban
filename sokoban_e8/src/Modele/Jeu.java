@@ -14,13 +14,15 @@ public class Jeu {
 		return courant;
 	}
 
-	public void deplace(int l, int c) {
+	public boolean deplace(int l, int c) {
 		if (!courant.deplace(l, c)) {
 			Configuration.instance().logger().info("Déplacement impossible");
+			return false;
 		}
 		if (courant.estTermine())
 			if (!prochainNiveau())
 				System.exit(0);
+		return true;
 	}
 
 	public boolean prochainNiveau() {
@@ -42,5 +44,13 @@ public class Jeu {
 
 	public void redoCoup(){
 		courant.redoCoup();
+	}
+
+	public Coup dernierCoup(){
+		return courant.dernierCoup();
+	}
+
+	public int derniereDirection(){
+		return courant.derniereDirection();
 	}
 }

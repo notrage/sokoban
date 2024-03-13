@@ -1,37 +1,45 @@
 package Controleur;
 
-import java.awt.Point;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import Modele.Coup;
 import Modele.Jeu;
 import Vue.InterfaceGraphique;
 
 public class AdaptateurClavier extends KeyAdapter {
 	InterfaceGraphique inter;
 	Jeu jeu;
-	Animation animations;
+	Animation animationPousseur, animationCaisse;
 
-	public AdaptateurClavier(InterfaceGraphique i, Jeu j, Animation a) {
+	public AdaptateurClavier(InterfaceGraphique i, Jeu j, Animation pousseur, Animation caisse) {
 		inter = i;
 		jeu = j;
-		animations = a;
+		animationPousseur = pousseur;
+		animationCaisse = caisse;
 	}
 
 	void deplace(int l, int c) {
-		if (!animations.animationEnCours()) {
-			Point depart = new Point(jeu.pousseurC(), jeu.pousseurL());
-			jeu.deplace(l, c);
-			Point arrivee = new Point(jeu.pousseurC(), jeu.pousseurL());
-			if (!depart.equals(arrivee)) {
-				animations.nouvelleAnimation(depart, arrivee);
+		if (!animationPousseur.animationEnCours() && !animationCaisse.animationEnCours()) {
+			if (jeu.deplace(l, c)) {
+				Coup dernierCoup = jeu.dernierCoup();
+				animationPousseur.nouvelleAnimation(dernierCoup.departPousseur(), dernierCoup.arriveePousseur());
+				if (dernierCoup.aCaisse()) {
+					animationCaisse.nouvelleAnimation(dernierCoup.departCaisse(), dernierCoup.arriveeCaisse());
+				}
+				inter.repaint();
 			}
-			inter.repaint();
 		}
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		if (inter.ng().isIArunning()) {
+			if (e.getKeyCode() == KeyEvent.VK_I){
+				inter.toggleIA();
+			}
+			return;
+		}
 		switch (e.getKeyCode()) {
 			case KeyEvent.VK_UP:
 				deplace(-1, 0);
@@ -59,6 +67,12 @@ public class AdaptateurClavier extends KeyAdapter {
 			case KeyEvent.VK_ENTER:
 				jeu.redoCoup();
 				inter.repaint();
+				break;
+			case KeyEvent.VK_W:
+				inter.toggleAnimation();
+				break;
+			case KeyEvent.VK_I:
+				inter.toggleIA();
 				break;
 		}
 	}

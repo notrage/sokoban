@@ -34,18 +34,25 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import Controleur.Animation;
+import Controleur.AnimationJeuAutomatique;
+import Controleur.AnimationPousseur;
 
 import java.awt.*;
-import java.awt.geom.Point2D;
 import java.io.File;
 import java.io.InputStream;
 
 public class NiveauGraphique extends JComponent {
 	Jeu jeu;
-	Image but, caisse, caisseSurBut, mur, pousseur, sol;
+	Image but, caisse, caisseSurBut, mur, sol;
+	Image[][] pousseur;
+	int direction; // 0 = haut, 1 = gauche, 2 = droite, 3 = bas 
 	int largeurCase, hauteurCase;
-	Animation animations;
-
+	Animation animationPousseur;
+	Animation animationCaisse;
+	AnimationPousseur changementImagePousseur;
+	AnimationJeuAutomatique ia;
+	boolean avecAnimation;
+	boolean modeia;
 	private Image chargeImage(String nom) {
 		Image img = null;
 		InputStream in = Configuration.charge("Images" + File.separator + nom + ".png");
@@ -59,15 +66,25 @@ public class NiveauGraphique extends JComponent {
 		return img;
 	}
 
-	public NiveauGraphique(Jeu j, Animation a) {
+	public NiveauGraphique(Jeu jeu, Animation p, Animation c, AnimationPousseur po, AnimationJeuAutomatique ia) {
 		but = chargeImage("But");
 		caisse = chargeImage("Caisse");
 		caisseSurBut = chargeImage("Caisse_sur_but");
 		mur = chargeImage("Mur");
-		pousseur = chargeImage("Pousseur");
 		sol = chargeImage("Sol");
-		jeu = j;
-		animations = a;
+		pousseur = new Image[4][4];
+		for (int i = 0; i < 4; i++){
+			for (int j = 0; j < 4; j++){
+				pousseur[i][j] = chargeImage("Pousseur_"+i+"_"+j);
+			}
+		}
+		this.jeu = jeu;
+		changementImagePousseur = po;
+		animationPousseur = p;
+		animationCaisse = c;
+		avecAnimation = true;
+		this.ia = ia;
+		modeia = false;
 	}
 
 	@Override
@@ -99,30 +116,47 @@ public class NiveauGraphique extends JComponent {
 					drawable.drawImage(sol, x, y, largeurCase, hauteurCase, null);
 				if (niv.aMur(j, i))
 					drawable.drawImage(mur, x, y, largeurCase, hauteurCase, null);
-				else if (niv.aCaisse(j, i)) {
-					if (niv.aBut(j, i))
-						drawable.drawImage(caisseSurBut, x, y, largeurCase, hauteurCase, null);
-					else
-						drawable.drawImage(caisse, x, y, largeurCase, hauteurCase, null);
-
-				}
 			}
 		}
 
 		for (int i = 0; i < niv.colonnes(); i++) {
 			for (int j = 0; j < niv.lignes(); j++) {
-				int x = i * largeurCase;
-				int y = j * hauteurCase;
-				if (niv.aPousseur(j, i)) {
-					if (animations.animationEnCours()) {
-						//System.out.println("Redraw with anim");
-						Point2D coord = deplacement(animations.depart(), animations.arrivee(), animations.etape(),
-								animations.maxEtape());
-						drawable.drawImage(pousseur, (int) coord.getX(), (int) coord.getY(), largeurCase, hauteurCase,
-								null);
-					} else {
-						drawable.drawImage(pousseur, x, y, largeurCase, hauteurCase, null);
-					}
+				drawAnimation(drawable, j, i);
+			}
+		}
+	}
+
+	private void drawAnimation(Graphics2D drawable, int j, int i) {
+		if (!avecAnimation){
+			animationCaisse.stop();
+			animationPousseur.stop();
+		}
+		int x = i * largeurCase;
+		int y = j * hauteurCase;
+		Niveau niv = jeu.niveau();
+		if (niv.aPousseur(j, i)) {
+			if (animationPousseur.animationEnCours()) {
+				Point coord = deplacement(animationPousseur.depart(), animationPousseur.arrivee(),
+						animationPousseur.etape(),
+						animationPousseur.maxEtape());
+				drawable.drawImage(pousseur[jeu.derniereDirection()][changementImagePousseur.etape()], (int) coord.x, (int) coord.y, largeurCase, hauteurCase,
+						null);
+			} else {
+				drawable.drawImage(pousseur[jeu.derniereDirection()][changementImagePousseur.etape()], x, y, largeurCase, hauteurCase, null);
+			}
+		} else if (niv.aCaisse(j, i)) {
+			if (animationCaisse.animationEnCours() && animationCaisse.arrivee().x == j
+					&& animationCaisse.arrivee().y == i) {
+				Point coord = deplacement(animationCaisse.depart(), animationCaisse.arrivee(),
+						animationCaisse.etape(),
+						animationCaisse.maxEtape());
+				drawable.drawImage(caisse, (int) coord.x, (int) coord.y, largeurCase, hauteurCase,
+						null);
+			} else {
+				if (niv.aBut(j, i)) {
+					drawable.drawImage(caisseSurBut, x, y, largeurCase, hauteurCase, null);
+				} else {
+					drawable.drawImage(caisse, x, y, largeurCase, hauteurCase, null);
 				}
 			}
 		}
@@ -136,18 +170,29 @@ public class NiveauGraphique extends JComponent {
 		return hauteurCase;
 	}
 
-	public Point2D deplacement(Point2D depart, Point2D arrivee, int etape_courante, int n_etape) {
+	public Point deplacement(Point depart, Point arrivee, int etape_courante, int n_etape) {
 		// Calcul des deltas
-		double x1 = depart.getX() * largeurCase();
-		double y1 = depart.getY() * hauteurCase();
-		double x2 = arrivee.getX() * largeurCase();
-		double y2 = arrivee.getY() * hauteurCase();
-		double newX = x1 + ((float) etape_courante / (float) n_etape) * (x2 - x1);
-		double newY = y1 + ((float) etape_courante / (float) n_etape) * (y2 - y1);
-		//System.out.println(new Point2D.Double(x1, y1) + " => " + new Point2D.Double(newX, newY) + " => "
-		//			+ new Point2D.Double(x2, y2));
+		float x1 = depart.x * largeurCase();
+		float y1 = depart.y * hauteurCase();
+		float x2 = arrivee.x * largeurCase();
+		float y2 = arrivee.y * hauteurCase();
+		int newX = (int) (x1 + ((float) etape_courante / (float) n_etape) * (x2 - x1));
+		int newY = (int) (y1 + ((float) etape_courante / (float) n_etape) * (y2 - y1));
+		// Inversion pour correspondre à l'affichage
+		return new Point(newY, newX);
+	}
 
-		// Retourne les nouvelles coordonnées sous forme de Point2D
-		return new Point2D.Double(newX, newY);
+	public void toggleAnimation(){
+		avecAnimation = !avecAnimation;
+		changementImagePousseur.toggle();
+	}
+
+	public void toggleIA(){
+		modeia = !modeia;
+		ia.toggleIA();
+	}
+
+	public boolean isIArunning(){
+		return modeia;
 	}
 }

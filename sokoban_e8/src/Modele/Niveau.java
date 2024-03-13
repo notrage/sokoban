@@ -15,14 +15,16 @@ public class Niveau {
 	final int BUT = 4;
 	final int CAISSE = 8;
 
-	int[][] contenu;
-	int l, c;
-	String nom;
-	int pousseurL, pousseurC;
-	int nbBut;
-	int nbCaisseSurBut;
-	ArrayList<Coup> coups;
-	int idx_coup;
+	private int[][] contenu;
+	private int l, c;
+	private String nom;
+	private int pousseurL, pousseurC;
+	private int nbBut;
+	private int nbCaisseSurBut;
+	private ArrayList<Coup> coups;
+	private int idx_coup;
+	private Coup dernierCoup;
+	int derniereDirection;
 
 	Niveau() {
 		contenu = new int[1][1];
@@ -82,7 +84,8 @@ public class Niveau {
 	}
 
 	public void jouerCoup(Coup c, boolean isRedo) {
-		System.out.println("Coup joué : " + c.departPousseur + " " + c.arriveePousseur);
+		dernierCoup = c;
+		System.out.println("Coup joué : " + c);
 		if (c.aCaisse()) {
 			supprime(CAISSE, c.departCaisse().x, c.departCaisse().y);
 			ajoute(CAISSE, c.arriveeCaisse().x, c.arriveeCaisse.y);
@@ -98,12 +101,11 @@ public class Niveau {
 			coups.add(c);
 			idx_coup++;
 		}
-		System.out.println(idx_coup + " " + coups);
-
 	}
 
 	public void pouCreuouJ(Coup c){
-		System.out.println("Coup déjoué : " + c.departPousseur + " " + c.arriveePousseur);
+		dernierCoup = c;
+		System.out.println("Coup déjoué : " + c);
 		supprime(POUSSEUR, c.arriveePousseur().x, c.arriveePousseur().y);
 		ajoute(POUSSEUR, c.departPousseur().x, c.departPousseur().y);
 		if (c.aCaisse()){
@@ -112,8 +114,6 @@ public class Niveau {
 		}
 		pousseurL = c.departPousseur().x;
 		pousseurC = c.departPousseur().y;
-		System.out.println(idx_coup + " " + coups);
-
 	}
 
 	public void annulerDernierCoup() {
@@ -132,7 +132,6 @@ public class Niveau {
 
 	public boolean deplace(int dL, int dC) {
 		Coup c;
-		System.out.println(dL + " " + dC);
 		int destL = pousseurL + dL;
 		int destC = pousseurC + dC;
 		if (aCaisse(destL, destC)) {
@@ -227,5 +226,29 @@ public class Niveau {
 
 	int pousseurC() {
 		return pousseurC;
+	}
+
+	public Coup dernierCoup(){
+		return dernierCoup;
+	}
+
+	public int derniereDirection(){
+		if (dernierCoup == null) return 2;
+		return dernierCoup.direction();
+	}
+
+	public Niveau clone(){
+		Niveau n = new Niveau();
+		for (int i = 0; i < lignes(); i++){
+			for (int j = 0; j < colonnes(); j++){
+				n.ajoute(contenu[i][j], i, j);
+			}
+		}
+		n.fixeNom(nom);
+		n.pousseurL = pousseurL;
+		n.pousseurC = pousseurC;
+		n.nbBut = nbBut;
+		n.nbCaisseSurBut = nbCaisseSurBut;
+		return n;
 	}
 }

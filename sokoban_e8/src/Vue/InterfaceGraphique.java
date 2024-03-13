@@ -10,7 +10,11 @@ public class InterfaceGraphique implements Runnable {
 	boolean maximized;
 	JFrame frame;
 	NiveauGraphique ng;
-	Animation animations;
+	Animation animationPousseur;
+	Animation animationCaisse;
+	AnimationPousseur changementImagePousseur;
+	AnimationJeuAutomatique ia;
+
 	InterfaceGraphique(Jeu j) {
 		jeu = j;
 	}
@@ -21,12 +25,14 @@ public class InterfaceGraphique implements Runnable {
 
 	public void run() {
 		frame = new JFrame("Sokoban");
-		animations = new Animation(this);
-		System.out.println(animations);
-		ng = new NiveauGraphique(jeu, animations);
+		animationPousseur = new Animation(this);
+		animationCaisse = new Animation(this);
+		changementImagePousseur = new AnimationPousseur(this);
+		ia = new AnimationJeuAutomatique(this, jeu, animationPousseur, animationCaisse);
+		ng = new NiveauGraphique(jeu, animationPousseur, animationCaisse, changementImagePousseur, ia);
 		frame.add(ng);
-		ng.addMouseListener(new AdaptateurSouris(ng, jeu, animations));
-		frame.addKeyListener(new AdaptateurClavier(this, jeu, animations));
+		frame.addMouseListener(new AdaptateurSouris(this, jeu, animationPousseur, animationCaisse));
+		frame.addKeyListener(new AdaptateurClavier(this, jeu, animationPousseur, animationCaisse));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(500, 300);
 		frame.setVisible(true);
@@ -43,8 +49,19 @@ public class InterfaceGraphique implements Runnable {
 			maximized = true;
 		}
 	}
+	public NiveauGraphique ng(){
+		return ng;
+	}
 
 	public void repaint() {
 		ng.repaint();
+	}
+
+	public void toggleAnimation(){
+		ng.toggleAnimation();
+	}
+
+	public void toggleIA(){
+		ng.toggleIA();
 	}
 }
