@@ -39,4 +39,8 @@ public class Jeu {
 	public void annulerDernierCoup(){
 		courant.annulerDernierCoup();
 	}
+
+	public void redoCoup(){
+		courant.redoCoup();
+	}
 }

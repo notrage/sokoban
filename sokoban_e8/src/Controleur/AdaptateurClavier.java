@@ -56,6 +56,10 @@ public class AdaptateurClavier extends KeyAdapter {
 				jeu.annulerDernierCoup();
 				inter.repaint();
 				break;
+			case KeyEvent.VK_ENTER:
+				jeu.redoCoup();
+				inter.repaint();
+				break;
 		}
 	}
 }

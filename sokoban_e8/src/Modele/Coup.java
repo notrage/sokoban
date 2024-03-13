@@ -40,4 +40,8 @@ public class Coup {
     public boolean aCaisse(){
         return aCaisse;
     }
+
+    public String toString(){
+        return departPousseur.x + "," + departPousseur.y + " => " + arriveePousseur.x + "," + arriveePousseur.y ;
+    }
 }

@@ -22,12 +22,14 @@ public class Niveau {
 	int nbBut;
 	int nbCaisseSurBut;
 	ArrayList<Coup> coups;
+	int idx_coup;
 
 	Niveau() {
 		contenu = new int[1][1];
 		l = 0;
 		c = 0;
 		coups = new ArrayList<>();
+		idx_coup = 0;
 	}
 
 	public int ajuste(int c, int i) {
@@ -79,7 +81,7 @@ public class Niveau {
 				nbCaisseSurBut--;
 	}
 
-	public void jouerCoup(Coup c) {
+	public void jouerCoup(Coup c, boolean isRedo) {
 		System.out.println("Coup joué : " + c.departPousseur + " " + c.arriveePousseur);
 		if (c.aCaisse()) {
 			supprime(CAISSE, c.departCaisse().x, c.departCaisse().y);
@@ -89,7 +91,15 @@ public class Niveau {
 		ajoute(POUSSEUR, c.arriveePousseur().x, c.arriveePousseur().y);
 		pousseurL = c.arriveePousseur().x;
 		pousseurC = c.arriveePousseur().y;
-		coups.add(c);
+		if (!isRedo){
+			while (coups.size() > idx_coup){
+				coups.remove(coups.size() - 1);
+			}
+			coups.add(c);
+			idx_coup++;
+		}
+		System.out.println(idx_coup + " " + coups);
+
 	}
 
 	public void pouCreuouJ(Coup c){
@@ -102,13 +112,21 @@ public class Niveau {
 		}
 		pousseurL = c.departPousseur().x;
 		pousseurC = c.departPousseur().y;
-		System.out.println("Nouvelle position du joueur : " + pousseurC() + "," + pousseurL());
+		System.out.println(idx_coup + " " + coups);
+
 	}
 
 	public void annulerDernierCoup() {
-		if (coups.size() > 0) {
-			Coup old_c = coups.remove(coups.size() - 1);
-			pouCreuouJ(old_c);
+		if (coups.size() > 0 && idx_coup > 0) {
+			idx_coup--;
+			pouCreuouJ(coups.get(idx_coup));
+		}
+	}
+
+	public void redoCoup(){
+		if (idx_coup < coups.size()){
+			jouerCoup(coups.get(idx_coup), true);
+			idx_coup++;
 		}
 	}
 
@@ -122,14 +140,14 @@ public class Niveau {
 			int caisseC = destC + dC;
 			if (estLibre(caisseL, caisseC)) {
 				c = new Coup(new Point(pousseurL, pousseurC), new Point(destL, destC), new Point(caisseL, caisseC));
-				jouerCoup(c);
+				jouerCoup(c, false);
 				return true;
 			} else {
 				return false;
 			}
 		} else if (estLibre(destL, destC)) {
 			c = new Coup(new Point(pousseurL, pousseurC), new Point(destL, destC));
-			jouerCoup(c);
+			jouerCoup(c, false);
 			return true;
 		} else {
 			return false;
