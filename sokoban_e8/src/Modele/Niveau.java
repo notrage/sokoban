@@ -16,6 +16,7 @@ public class Niveau {
 	final int CAISSE = 8;
 
 	private int[][] contenu;
+	private Marque[][] marques;
 	private int l, c;
 	private String nom;
 	private int pousseurL, pousseurC;
@@ -28,6 +29,7 @@ public class Niveau {
 
 	Niveau() {
 		contenu = new int[1][1];
+		marques = new Marque[1][1];
 		l = 0;
 		c = 0;
 		coups = new ArrayList<>();
@@ -49,10 +51,15 @@ public class Niveau {
 			int newC = ajuste(oldC, c);
 			System.err.println("Redimensionnement : " + newL + "*" + newC);
 			int[][] newTab = new int[newL][newC];
-			for (int i = 0; i < oldL; i++)
-				for (int j = 0; j < oldC; j++)
+			Marque[][] newMarques = new Marque[newL][newC];
+			for (int i = 0; i < oldL; i++){
+				for (int j = 0; j < oldC; j++){
+					newMarques[i][j] = marques[i][j];
 					newTab[i][j] = contenu[i][j];
+				}
+			}
 			contenu = newTab;
+			marques = newMarques;
 		}
 	}
 
@@ -250,5 +257,25 @@ public class Niveau {
 		n.nbBut = nbBut;
 		n.nbCaisseSurBut = nbCaisseSurBut;
 		return n;
+	}
+
+	public boolean marquer(int l, int c){
+		if (marques[l][c] == null){
+			marques[l][c] = new Marque();
+			return true;
+		}
+		return false;
+	}
+
+	public boolean aMarque(int l, int c){
+		return marques[l][c] != null;
+	}
+
+	public void retirerMarque(int l, int c){
+		marques[l][c] = null;
+	}
+
+	public void resetMarques(){
+		marques = new Marque[lignes()][colonnes()];
 	}
 }

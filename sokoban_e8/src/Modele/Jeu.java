@@ -53,4 +53,22 @@ public class Jeu {
 	public int derniereDirection(){
 		return courant.derniereDirection();
 	}
+
+	public boolean marquer(int i, int j){
+		return courant.marquer(i, j);
+	}
+
+	public boolean aMarque(int i, int j){
+		return courant.aMarque(i, j);
+	}
+
+	public void retirerMarque(int l, int c){
+		courant.retirerMarque(l, c);
+	}
+
+	public void resetMarques() {
+		courant.resetMarques();
+	}
+
+
 }

@@ -6,6 +6,7 @@ public class Coup {
     Point departPousseur;
     Point arriveePousseur;
     boolean aCaisse;
+    boolean aMarque;
     Point arriveeCaisse;
 
     public Point departPousseur() {
@@ -23,18 +24,20 @@ public class Coup {
     public Point arriveeCaisse() {
         return arriveeCaisse;
     }
-
-    Coup(Point dP, Point aP, Point aC) {
+    Coup(Point dP, Point aP, Point aC, boolean aCaisse, boolean marque){
         departPousseur = dP;
         arriveePousseur = aP;
-        aCaisse = true;
+        this.aCaisse = aCaisse;
         arriveeCaisse = aC;
+        aMarque = marque;
+    }
+
+    Coup(Point dP, Point aP, Point aC) {
+        this(dP, aP, aC, true, false);
     }
 
     Coup(Point dP, Point aP) {
-        departPousseur = dP;
-        arriveePousseur = aP;
-        aCaisse = false;
+        this(dP, aP, null, false, false);
     }
 
     public int direction() {
@@ -65,5 +68,9 @@ public class Coup {
 
     public String toString() {
         return departPousseur.x + "," + departPousseur.y + " => " + arriveePousseur.x + "," + arriveePousseur.y;
+    }
+
+    public boolean aMarque() {
+        return aMarque;
     }
 }
