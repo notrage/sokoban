@@ -1,13 +1,17 @@
 package Modele;
 
 import java.awt.Point;
+import java.util.HashSet;
 
 public class Situation {
-    Point[] positionCaisses;
+    HashSet<Point> positionCaisses;
     int[] positionFuturCaisses;
 
-    Situation(Point[] pC, int[] pFC) {
-        positionCaisses = pC;
+    Situation(HashSet<Point> pC, int[] pFC) {
+        positionCaisses = new HashSet<>();
+        for (Point p : pC){
+            positionCaisses.add(p);
+        }
         positionFuturCaisses = pFC;
     }
 
@@ -15,22 +19,37 @@ public class Situation {
         int[][] directions = { { 0, -1 }, { -1, 0 }, { 0, 1 }, { 1, 0 } };
         Situation[] fS = new Situation[positionFuturCaisses.length * 4];
         int idx = 0;
-        for (int i = 0; i < positionCaisses.length; i++) {
+        int i = 0;
+        for (Point caisse : positionCaisses) {
             for (int j = 0; j < 4; j++) {
                 if ((positionFuturCaisses[i] & (int) Math.pow(2, j)) > 0) {
-                    Point arriveCaisse = new Point(positionCaisses[i].x + directions[j][0],
-                            positionCaisses[i].y + directions[j][1]);
-                    Point departJoueur = new Point(positionCaisses[i].x - directions[j][0],
-                            positionCaisses[i].y - directions[j][1]);
-                    Point arriveJoueur = positionCaisses[i];
+                    HashSet<Point> tmp = n.caisses;
+                    n.caisses = positionCaisses;
+                    Point arriveCaisse = new Point(caisse.x + directions[j][0],
+                            caisse.y + directions[j][1]);
+                    Point departJoueur = new Point(caisse.x - directions[j][0],
+                            caisse.y - directions[j][1]);
+                    Point arriveJoueur = caisse;
                     Coup c = new Coup(departJoueur, arriveJoueur, arriveCaisse);
                     n.jouerCoup(c, false);
                     fS[idx] = n.toSituation();
                     idx++;
                     n.annulerDernierCoup();
+                    n.caisses = tmp;
                 }
             }
+            i++;
         }
         return fS;
+    }
+
+    public String toString() {
+        String s = "";
+        int i = 0;
+        for (Point caisse : positionCaisses) {
+            s += caisse + " => " + positionFuturCaisses[i] + "\n";
+            i++;
+        }
+        return s;
     }
 }

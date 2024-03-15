@@ -1,9 +1,5 @@
 package Structures;
 
-import Structures.Iterateur;
-import Structures.Sequence;
-import Structures.SequenceTableau;
-
 import java.util.Random;
 
 public class TestIterateur {

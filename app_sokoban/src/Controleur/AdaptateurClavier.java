@@ -80,6 +80,10 @@ public class AdaptateurClavier extends KeyAdapter {
 				break;
 			case KeyEvent.VK_L:
 				jeu.niveau().marqueAccessibles(jeu.pousseurL(), jeu.pousseurC());
+				break;
+			case KeyEvent.VK_C:
+				System.out.println(jeu.niveau().positionCaisses());
+				break;
 		}
 		inter.repaint();
 	}

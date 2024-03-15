@@ -2,6 +2,7 @@ package Modele;
 
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -28,6 +29,7 @@ public class Niveau {
 	private int idx_coup;
 	private Coup dernierCoup;
 	int derniereDirection;
+	HashSet<Point> caisses;
 
 	Niveau() {
 		contenu = new int[1][1];
@@ -35,6 +37,7 @@ public class Niveau {
 		l = 0;
 		c = 0;
 		coups = new ArrayList<>();
+		caisses = new HashSet<>();
 		idx_coup = 0;
 	}
 
@@ -71,6 +74,7 @@ public class Niveau {
 
 	public void videCase(int i, int j) {
 		contenu[i][j] = 0;
+		caisses.remove(new Point(i,j));
 	}
 
 	public void ajoute(int element, int i, int j) {
@@ -80,16 +84,23 @@ public class Niveau {
 			l = i + 1;
 		if (c <= j)
 			c = j + 1;
-		if (element == CAISSE)
+		if (element == CAISSE) {
+			caisses.add(new Point(i,j));
 			if (aBut(i, j))
 				nbCaisseSurBut++;
+		}
+
 	}
 
 	public void supprime(int element, int i, int j) {
 		contenu[i][j] &= ~element;
-		if (element == CAISSE)
-			if (aBut(i, j))
+		if (element == CAISSE) {
+			caisses.remove(new Point(i,j));
+			if (aBut(i, j)){
 				nbCaisseSurBut--;
+			}
+		}
+
 	}
 
 	public void jouerCoup(Coup c, boolean isRedo) {
@@ -218,7 +229,7 @@ public class Niveau {
 	}
 
 	public boolean aCaisse(int l, int c) {
-		return (contenu[l][c] & CAISSE) != 0;
+		return caisses.contains(new Point(l, c));
 	}
 
 	boolean estLibre(int l, int c) {
@@ -282,17 +293,7 @@ public class Niveau {
 		marques = new Marque[lignes()][colonnes()];
 	}
 
-	public Point[] positionCaisses() {
-		Point[] caisses = new Point[nbBut];
-		int idx = 0;
-		for (int i = 0; i < lignes(); i++) {
-			for (int j = 0; j < colonnes(); j++) {
-				if (aCaisse(i, j)) {
-					caisses[idx] = new Point(i, j);
-					idx++;
-				}
-			}
-		}
+	public HashSet<Point> positionCaisses() {
 		return caisses;
 	}
 
@@ -306,11 +307,9 @@ public class Niveau {
 			m = f.remove();
 			int i = m.caseCourante.x;
 			int j = m.caseCourante.y;
-			System.out.println(m.caseCourante);
 			if (i >= 0 && i < lignes() &&
 					j >= 0 && j < colonnes() &&
 					!aMarque(i, j) && estLibre(i, j)) {
-				System.out.println(m.caseCourante);
 				marques[i][j] = m;
 				for (int[] direction : directions) {
 					int di = direction[0];
@@ -321,18 +320,20 @@ public class Niveau {
 		}
 	}
 
-	public int[] deplacementsCaisses(Point[] caisses) {
+	public int[] deplacementsCaisses() {
 		int[][] directions = { { 0, -1 }, { -1, 0 }, { 0, 1 }, { 1, 0 } };
 		int[] positionsFutursCaisses = new int[nbBut];
-		for (int i = 0; i < nbBut; i++) {
-			Point caisse = caisses[i];
+		int i = 0;
+		for (Point caisse : caisses) {
 			for (int j = 0; j < 4; j++) {
-				if (marques[caisse.x - directions[j][0]][caisse.y - directions[j][i]] != null
-						&& estLibre(caisse.x + directions[j][0], caisse.y + directions[j][i])) {
+				if (marques[caisse.x - directions[j][0]][caisse.y - directions[j][1]] != null
+						&& estLibre(caisse.x + directions[j][0], caisse.y + directions[j][1])) {
 					positionsFutursCaisses[i] |= (int) Math.pow(2, j);
-					System.out.println("la caisse en (" + caisse.x + ',' + caisse.y + ") peut aller en " + directions[j]);
+					System.out.println("la caisse en (" + caisse.x + ',' + caisse.y + ") peut aller en "
+							+ directions[j][0] + ", " + directions[j][1]);
 				}
 			}
+			i++;
 		}
 		return positionsFutursCaisses;
 	}
@@ -340,8 +341,7 @@ public class Niveau {
 	public Situation toSituation() {
 		resetMarques();
 		marqueAccessibles(pousseurL, pousseurC);
-		Point[] caisses = positionCaisses();
-		int[] directionsCaisses = deplacementsCaisses(caisses);
+		int[] directionsCaisses = deplacementsCaisses();
 		return new Situation(caisses, directionsCaisses);
 	}
 }

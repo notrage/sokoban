@@ -34,9 +34,7 @@ public class AnimationJeuAutomatique implements ActionListener {
             timer.stop();
         } else {
             generateur = new GenerateurCoups(jeu.niveau());
-            coups = generateur.generationCoup(100);
-            System.out.println("Coups générés !");
-            timer.start();
+            generateur.solver();
         }
     }
 
@@ -47,7 +45,6 @@ public class AnimationJeuAutomatique implements ActionListener {
         while (animationPousseur.animationEnCours() || animationCaisse.animationEnCours())
             ;
         Coup c = coups.remove(0);
-        System.out.println(c);
         if (jeu.deplace(c.directionX(), c.directionY())) {
             Coup dernierCoup = jeu.dernierCoup();
             jeu.marquer(dernierCoup.departPousseur().x, dernierCoup.departPousseur().y);
