@@ -1,30 +1,29 @@
 package Modele;
 
 import java.awt.Point;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
+import java.util.Objects;
 
 public class Situation {
-    HashSet<Point> positionCaisses;
-    int[] positionFuturCaisses;
+    HashMap<Point, Integer> positionCaisses;
 
-    Situation(HashSet<Point> pC, int[] pFC) {
-        positionCaisses = new HashSet<>();
-        for (Point p : pC){
-            positionCaisses.add(p);
-        }
-        positionFuturCaisses = pFC;
+    public Situation(HashMap<Point, Integer> pC) {
+        positionCaisses = pC;
     }
 
     public Situation[] futurSituations(Niveau n) {
         int[][] directions = { { 0, -1 }, { -1, 0 }, { 0, 1 }, { 1, 0 } };
-        Situation[] fS = new Situation[positionFuturCaisses.length * 4];
+        Situation[] fS = new Situation[positionCaisses.size() * 4];
         int idx = 0;
-        int i = 0;
-        for (Point caisse : positionCaisses) {
+        for (Map.Entry<Point, Integer> entry : positionCaisses.entrySet()) {
+            Point caisse = entry.getKey();
+            int value = entry.getValue();
             for (int j = 0; j < 4; j++) {
-                if ((positionFuturCaisses[i] & (int) Math.pow(2, j)) > 0) {
+                if ((value & (1 << j)) > 0) {
                     HashSet<Point> tmp = n.caisses;
-                    n.caisses = positionCaisses;
+                    n.caisses = new HashSet<>(positionCaisses.keySet());
                     Point arriveCaisse = new Point(caisse.x + directions[j][0],
                             caisse.y + directions[j][1]);
                     Point departJoueur = new Point(caisse.x - directions[j][0],
@@ -38,18 +37,37 @@ public class Situation {
                     n.caisses = tmp;
                 }
             }
-            i++;
         }
         return fS;
     }
 
+    public boolean gagnante(Niveau n) {
+        for (Point p : positionCaisses.keySet()) {
+            if (!n.aBut(p.x, p.y)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public String toString() {
         String s = "";
-        int i = 0;
-        for (Point caisse : positionCaisses) {
-            s += caisse + " => " + positionFuturCaisses[i] + "\n";
-            i++;
+        for (Map.Entry<Point, Integer> entry : positionCaisses.entrySet()) {
+            s += entry.getKey() + " => " + entry.getValue() + "\n";
         }
         return s;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Situation that = (Situation) o;
+        return Objects.equals(positionCaisses, that.positionCaisses);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(positionCaisses);
     }
 }

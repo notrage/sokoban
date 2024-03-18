@@ -34,7 +34,7 @@ public class InterfaceGraphique implements Runnable {
 		frame.addMouseListener(new AdaptateurSouris(this, jeu, animationPousseur, animationCaisse));
 		frame.addKeyListener(new AdaptateurClavier(this, jeu, animationPousseur, animationCaisse));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(1920, 1080);
+		frame.setSize(300, 250);
 		frame.setVisible(true);
 	}
 

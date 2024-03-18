@@ -20,9 +20,9 @@ public class AdaptateurClavier extends KeyAdapter {
 	}
 
 	void deplace(int l, int c) {
+		Coup dernierCoup;
 		if (!animationPousseur.animationEnCours() && !animationCaisse.animationEnCours()) {
-			if (jeu.deplace(l, c)) {
-				Coup dernierCoup = jeu.dernierCoup();
+			if (jeu.deplace(l, c) && (dernierCoup = jeu.dernierCoup()) != null) {
 				animationPousseur.nouvelleAnimation(dernierCoup.departPousseur(), dernierCoup.arriveePousseur());
 				if (dernierCoup.aCaisse()) {
 					animationCaisse.nouvelleAnimation(dernierCoup.departCaisse(), dernierCoup.arriveeCaisse());
@@ -83,6 +83,9 @@ public class AdaptateurClavier extends KeyAdapter {
 				break;
 			case KeyEvent.VK_C:
 				System.out.println(jeu.niveau().positionCaisses());
+				break;
+			case KeyEvent.VK_N:
+				jeu.prochainNiveau();
 				break;
 		}
 		inter.repaint();

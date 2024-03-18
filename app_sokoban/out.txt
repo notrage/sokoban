@@ -1,0 +1,1687 @@
+{Sequence=Tableau, Niveaux=Niveaux/Tests.txt, LogLevel=0, Interface=Graphique}
+{Sequence=Tableau, Niveaux=Niveaux/Tests.txt, LogLevel=0, Interface=Graphique}
+Tableau
+la caisse en (3,8) peut aller en 0, -1
+java.awt.Point[x=3,y=8] => 1
+
+{}
+Nouvelle situation : java.awt.Point[x=3,y=8] => 1
+
+la caisse en (3,7) peut aller en 0, -1
+java.awt.Point[x=3,y=7] => 1
+
+{java.awt.Point[x=3,y=8] => 1
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=7] => 1
+
+la caisse en (3,6) peut aller en 0, -1
+java.awt.Point[x=3,y=6] => 1
+
+{java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=3,y=8] => 1
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=6] => 1
+
+la caisse en (3,5) peut aller en 0, -1
+java.awt.Point[x=3,y=5] => 1
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=3,y=8] => 1
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=5] => 1
+
+la caisse en (3,4) peut aller en 0, -1
+java.awt.Point[x=3,y=4] => 1
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=3,y=5] => 1
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=4] => 1
+
+la caisse en (3,3) peut aller en 0, -1
+la caisse en (3,3) peut aller en -1, 0
+la caisse en (3,3) peut aller en 0, 1
+la caisse en (3,3) peut aller en 1, 0
+java.awt.Point[x=3,y=3] => 15
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=3,y=5] => 1
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=3] => 15
+
+la caisse en (3,2) peut aller en 0, -1
+la caisse en (3,2) peut aller en -1, 0
+la caisse en (3,2) peut aller en 0, 1
+la caisse en (3,2) peut aller en 1, 0
+la caisse en (2,3) peut aller en 0, -1
+la caisse en (2,3) peut aller en -1, 0
+la caisse en (2,3) peut aller en 0, 1
+la caisse en (2,3) peut aller en 1, 0
+la caisse en (3,4) peut aller en -1, 0
+la caisse en (3,4) peut aller en 0, 1
+la caisse en (3,4) peut aller en 1, 0
+la caisse en (4,3) peut aller en 0, -1
+la caisse en (4,3) peut aller en -1, 0
+la caisse en (4,3) peut aller en 0, 1
+la caisse en (4,3) peut aller en 1, 0
+java.awt.Point[x=3,y=2] => 15
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=2] => 15
+
+la caisse en (3,1) peut aller en -1, 0
+la caisse en (3,1) peut aller en 1, 0
+la caisse en (2,2) peut aller en 0, -1
+la caisse en (2,2) peut aller en -1, 0
+la caisse en (2,2) peut aller en 0, 1
+la caisse en (2,2) peut aller en 1, 0
+la caisse en (3,3) peut aller en 0, -1
+la caisse en (3,3) peut aller en -1, 0
+la caisse en (3,3) peut aller en 0, 1
+la caisse en (3,3) peut aller en 1, 0
+la caisse en (4,2) peut aller en 0, -1
+la caisse en (4,2) peut aller en -1, 0
+la caisse en (4,2) peut aller en 0, 1
+la caisse en (4,2) peut aller en 1, 0
+java.awt.Point[x=2,y=3] => 15
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=2,y=3] => 15
+
+la caisse en (2,2) peut aller en 0, -1
+la caisse en (2,2) peut aller en -1, 0
+la caisse en (2,2) peut aller en 0, 1
+la caisse en (2,2) peut aller en 1, 0
+la caisse en (1,3) peut aller en 0, -1
+la caisse en (1,3) peut aller en 0, 1
+la caisse en (2,4) peut aller en -1, 0
+la caisse en (2,4) peut aller en 1, 0
+la caisse en (3,3) peut aller en 0, -1
+la caisse en (3,3) peut aller en -1, 0
+la caisse en (3,3) peut aller en 0, 1
+la caisse en (3,3) peut aller en 1, 0
+java.awt.Point[x=3,y=4] => 14
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=4] => 14
+
+la caisse en (2,4) peut aller en -1, 0
+la caisse en (2,4) peut aller en 1, 0
+la caisse en (3,5) peut aller en 0, 1
+la caisse en (4,4) peut aller en -1, 0
+la caisse en (4,4) peut aller en 1, 0
+java.awt.Point[x=4,y=3] => 15
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=4,y=3] => 15
+
+la caisse en (4,2) peut aller en 0, -1
+la caisse en (4,2) peut aller en -1, 0
+la caisse en (4,2) peut aller en 0, 1
+la caisse en (4,2) peut aller en 1, 0
+la caisse en (3,3) peut aller en 0, -1
+la caisse en (3,3) peut aller en -1, 0
+la caisse en (3,3) peut aller en 0, 1
+la caisse en (3,3) peut aller en 1, 0
+la caisse en (4,4) peut aller en -1, 0
+la caisse en (4,4) peut aller en 1, 0
+la caisse en (5,3) peut aller en 0, -1
+la caisse en (5,3) peut aller en -1, 0
+la caisse en (5,3) peut aller en 0, 1
+la caisse en (5,3) peut aller en 1, 0
+java.awt.Point[x=3,y=1] => 10
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=1] => 10
+
+la caisse en (2,1) peut aller en -1, 0
+la caisse en (2,1) peut aller en 1, 0
+la caisse en (4,1) peut aller en -1, 0
+la caisse en (4,1) peut aller en 1, 0
+java.awt.Point[x=2,y=2] => 15
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=2,y=2] => 15
+
+la caisse en (2,1) peut aller en -1, 0
+la caisse en (2,1) peut aller en 1, 0
+la caisse en (1,2) peut aller en 0, -1
+la caisse en (1,2) peut aller en 0, 1
+la caisse en (2,3) peut aller en 0, -1
+la caisse en (2,3) peut aller en -1, 0
+la caisse en (2,3) peut aller en 0, 1
+la caisse en (2,3) peut aller en 1, 0
+la caisse en (3,2) peut aller en 0, -1
+la caisse en (3,2) peut aller en -1, 0
+la caisse en (3,2) peut aller en 0, 1
+la caisse en (3,2) peut aller en 1, 0
+java.awt.Point[x=3,y=3] => 15
+
+java.awt.Point[x=4,y=2] => 15
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true, java.awt.Point[x=2,y=2] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=4,y=2] => 15
+
+la caisse en (4,1) peut aller en -1, 0
+la caisse en (4,1) peut aller en 1, 0
+la caisse en (3,2) peut aller en 0, -1
+la caisse en (3,2) peut aller en -1, 0
+la caisse en (3,2) peut aller en 0, 1
+la caisse en (3,2) peut aller en 1, 0
+la caisse en (4,3) peut aller en 0, -1
+la caisse en (4,3) peut aller en -1, 0
+la caisse en (4,3) peut aller en 0, 1
+la caisse en (4,3) peut aller en 1, 0
+la caisse en (5,2) peut aller en 0, -1
+la caisse en (5,2) peut aller en -1, 0
+la caisse en (5,2) peut aller en 0, 1
+la caisse en (5,2) peut aller en 1, 0
+java.awt.Point[x=2,y=2] => 15
+
+java.awt.Point[x=1,y=3] => 5
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true, java.awt.Point[x=4,y=2] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=1,y=3] => 5
+
+la caisse en (1,2) peut aller en 0, -1
+la caisse en (1,2) peut aller en 0, 1
+java.awt.Point[x=2,y=4] => 10
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=3,y=3] => 15
+=true, java.awt.Point[x=4,y=2] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=2,y=4] => 10
+
+la caisse en (3,4) peut aller en -1, 0
+la caisse en (3,4) peut aller en 0, 1
+la caisse en (3,4) peut aller en 1, 0
+java.awt.Point[x=3,y=3] => 15
+
+java.awt.Point[x=2,y=4] => 10
+
+java.awt.Point[x=3,y=5] => 4
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=3,y=3] => 15
+=true, java.awt.Point[x=4,y=2] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=5] => 4
+
+la caisse en (3,6) peut aller en 0, 1
+java.awt.Point[x=4,y=4] => 10
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=3,y=3] => 15
+=true, java.awt.Point[x=4,y=2] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=4,y=4] => 10
+
+la caisse en (3,4) peut aller en -1, 0
+la caisse en (3,4) peut aller en 0, 1
+la caisse en (3,4) peut aller en 1, 0
+la caisse en (5,4) peut aller en -1, 0
+la caisse en (5,4) peut aller en 1, 0
+java.awt.Point[x=4,y=2] => 15
+
+java.awt.Point[x=3,y=3] => 15
+
+java.awt.Point[x=4,y=4] => 10
+
+java.awt.Point[x=5,y=3] => 15
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=3,y=3] => 15
+=true, java.awt.Point[x=4,y=2] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=5,y=3] => 15
+
+la caisse en (5,2) peut aller en 0, -1
+la caisse en (5,2) peut aller en -1, 0
+la caisse en (5,2) peut aller en 0, 1
+la caisse en (5,2) peut aller en 1, 0
+la caisse en (4,3) peut aller en 0, -1
+la caisse en (4,3) peut aller en -1, 0
+la caisse en (4,3) peut aller en 0, 1
+la caisse en (4,3) peut aller en 1, 0
+la caisse en (5,4) peut aller en -1, 0
+la caisse en (5,4) peut aller en 1, 0
+la caisse en (6,3) peut aller en 0, -1
+la caisse en (6,3) peut aller en 0, 1
+java.awt.Point[x=2,y=1] => 10
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=3,y=3] => 15
+=true, java.awt.Point[x=4,y=2] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=2,y=1] => 10
+
+la caisse en (3,1) peut aller en -1, 0
+la caisse en (3,1) peut aller en 1, 0
+java.awt.Point[x=4,y=1] => 10
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=3,y=3] => 15
+=true, java.awt.Point[x=4,y=2] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=4,y=1] => 10
+
+la caisse en (3,1) peut aller en -1, 0
+la caisse en (3,1) peut aller en 1, 0
+la caisse en (5,1) peut aller en -1, 0
+la caisse en (5,1) peut aller en 1, 0
+java.awt.Point[x=2,y=1] => 10
+
+java.awt.Point[x=1,y=2] => 5
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=3,y=3] => 15
+=true, java.awt.Point[x=4,y=2] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=1,y=2] => 5
+
+la caisse en (1,3) peut aller en 0, -1
+la caisse en (1,3) peut aller en 0, 1
+java.awt.Point[x=2,y=3] => 15
+
+java.awt.Point[x=3,y=2] => 15
+
+java.awt.Point[x=4,y=1] => 10
+
+java.awt.Point[x=3,y=2] => 15
+
+java.awt.Point[x=4,y=3] => 15
+
+java.awt.Point[x=5,y=2] => 15
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=3,y=3] => 15
+=true, java.awt.Point[x=4,y=2] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=5,y=2] => 15
+
+la caisse en (5,1) peut aller en -1, 0
+la caisse en (5,1) peut aller en 1, 0
+la caisse en (4,2) peut aller en 0, -1
+la caisse en (4,2) peut aller en -1, 0
+la caisse en (4,2) peut aller en 0, 1
+la caisse en (4,2) peut aller en 1, 0
+la caisse en (5,3) peut aller en 0, -1
+la caisse en (5,3) peut aller en -1, 0
+la caisse en (5,3) peut aller en 0, 1
+la caisse en (5,3) peut aller en 1, 0
+la caisse en (6,2) peut aller en 0, -1
+la caisse en (6,2) peut aller en 0, 1
+java.awt.Point[x=1,y=2] => 5
+
+java.awt.Point[x=1,y=4] => 0
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=3,y=3] => 15
+=true, java.awt.Point[x=4,y=2] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=1,y=4] => 0
+
+java.awt.Point[x=1,y=4] => 0
+
+java.awt.Point[x=3,y=4] => 14
+
+java.awt.Point[x=3,y=6] => 4
+
+{java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=3,y=3] => 15
+=true, java.awt.Point[x=4,y=2] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=6] => 4
+
+la caisse en (3,7) peut aller en 0, 1
+java.awt.Point[x=3,y=4] => 14
+
+java.awt.Point[x=5,y=4] => 10
+
+{java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=3,y=3] => 15
+=true, java.awt.Point[x=4,y=2] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=5,y=4] => 10
+
+la caisse en (4,4) peut aller en -1, 0
+la caisse en (4,4) peut aller en 1, 0
+java.awt.Point[x=5,y=2] => 15
+
+java.awt.Point[x=4,y=3] => 15
+
+java.awt.Point[x=5,y=4] => 10
+
+java.awt.Point[x=6,y=3] => 5
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=6,y=3] => 5
+
+la caisse en (6,2) peut aller en 0, -1
+la caisse en (6,2) peut aller en 0, 1
+java.awt.Point[x=1,y=1] => 0
+
+{java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=1,y=1] => 0
+
+java.awt.Point[x=3,y=1] => 10
+
+java.awt.Point[x=3,y=1] => 10
+
+java.awt.Point[x=5,y=1] => 10
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=5,y=1] => 10
+
+la caisse en (4,1) peut aller en -1, 0
+la caisse en (4,1) peut aller en 1, 0
+java.awt.Point[x=1,y=1] => 0
+
+java.awt.Point[x=1,y=3] => 5
+
+java.awt.Point[x=5,y=1] => 10
+
+java.awt.Point[x=4,y=2] => 15
+
+java.awt.Point[x=5,y=3] => 15
+
+java.awt.Point[x=6,y=2] => 5
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=6,y=2] => 5
+
+la caisse en (6,3) peut aller en 0, -1
+la caisse en (6,3) peut aller en 0, 1
+java.awt.Point[x=3,y=7] => 4
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=6,y=2] => 5
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=7] => 4
+
+la caisse en (3,8) peut aller en 0, 1
+java.awt.Point[x=4,y=4] => 10
+
+java.awt.Point[x=6,y=4] => 0
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=6,y=2] => 5
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 4
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=6,y=4] => 0
+
+java.awt.Point[x=6,y=2] => 5
+
+java.awt.Point[x=6,y=4] => 0
+
+java.awt.Point[x=4,y=1] => 10
+
+java.awt.Point[x=6,y=1] => 0
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=6,y=2] => 5
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 4
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=6,y=4] => 0
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=6,y=1] => 0
+
+java.awt.Point[x=6,y=1] => 0
+
+java.awt.Point[x=6,y=3] => 5
+
+java.awt.Point[x=3,y=8] => 4
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=6,y=2] => 5
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=6,y=1] => 0
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 4
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=6,y=4] => 0
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=8] => 4
+
+la caisse en (3,9) peut aller en 0, 1
+java.awt.Point[x=3,y=9] => 4
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=6,y=2] => 5
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=6,y=1] => 0
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 4
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=6,y=4] => 0
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 4
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=9] => 4
+
+la caisse en (3,10) peut aller en 0, 1
+java.awt.Point[x=3,y=10] => 4
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=6,y=2] => 5
+=true, java.awt.Point[x=3,y=9] => 4
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=6,y=1] => 0
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 4
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=6,y=4] => 0
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 4
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=10] => 4
+
+la caisse en (3,11) peut aller en 0, 1
+java.awt.Point[x=3,y=11] => 4
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=3,y=10] => 4
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=6,y=2] => 5
+=true, java.awt.Point[x=3,y=9] => 4
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=6,y=1] => 0
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 4
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=6,y=4] => 0
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 4
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=11] => 4
+
+la caisse en (3,12) peut aller en 0, 1
+java.awt.Point[x=3,y=12] => 4
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=3,y=10] => 4
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=3,y=11] => 4
+=true, java.awt.Point[x=6,y=2] => 5
+=true, java.awt.Point[x=3,y=9] => 4
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=6,y=1] => 0
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 4
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=6,y=4] => 0
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 4
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=12] => 4
+
+la caisse en (3,13) peut aller en 0, -1
+la caisse en (3,13) peut aller en -1, 0
+la caisse en (3,13) peut aller en 0, 1
+la caisse en (3,13) peut aller en 1, 0
+java.awt.Point[x=3,y=13] => 15
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=3,y=10] => 4
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=3,y=11] => 4
+=true, java.awt.Point[x=6,y=2] => 5
+=true, java.awt.Point[x=3,y=9] => 4
+=true, java.awt.Point[x=3,y=12] => 4
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=6,y=1] => 0
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 4
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=6,y=4] => 0
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 4
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=13] => 15
+
+la caisse en (3,12) peut aller en 0, -1
+la caisse en (3,12) peut aller en -1, 0
+la caisse en (3,12) peut aller en 1, 0
+la caisse en (2,13) peut aller en 0, -1
+la caisse en (2,13) peut aller en -1, 0
+la caisse en (2,13) peut aller en 0, 1
+la caisse en (2,13) peut aller en 1, 0
+la caisse en (3,14) peut aller en 0, -1
+la caisse en (3,14) peut aller en -1, 0
+la caisse en (3,14) peut aller en 0, 1
+la caisse en (3,14) peut aller en 1, 0
+la caisse en (4,13) peut aller en 0, -1
+la caisse en (4,13) peut aller en -1, 0
+la caisse en (4,13) peut aller en 0, 1
+la caisse en (4,13) peut aller en 1, 0
+java.awt.Point[x=3,y=12] => 11
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=3,y=10] => 4
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=3,y=11] => 4
+=true, java.awt.Point[x=6,y=2] => 5
+=true, java.awt.Point[x=3,y=13] => 15
+=true, java.awt.Point[x=3,y=9] => 4
+=true, java.awt.Point[x=3,y=12] => 4
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=6,y=1] => 0
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 4
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=6,y=4] => 0
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 4
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=12] => 11
+
+la caisse en (3,11) peut aller en 0, -1
+la caisse en (2,12) peut aller en -1, 0
+la caisse en (2,12) peut aller en 1, 0
+la caisse en (4,12) peut aller en -1, 0
+la caisse en (4,12) peut aller en 1, 0
+java.awt.Point[x=2,y=13] => 15
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=3,y=10] => 4
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=3,y=11] => 4
+=true, java.awt.Point[x=6,y=2] => 5
+=true, java.awt.Point[x=3,y=13] => 15
+=true, java.awt.Point[x=3,y=9] => 4
+=true, java.awt.Point[x=3,y=12] => 4
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=6,y=1] => 0
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=3,y=12] => 11
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 4
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=6,y=4] => 0
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 4
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=2,y=13] => 15
+
+la caisse en (2,12) peut aller en -1, 0
+la caisse en (2,12) peut aller en 1, 0
+la caisse en (1,13) peut aller en 0, -1
+la caisse en (1,13) peut aller en 0, 1
+la caisse en (2,14) peut aller en 0, -1
+la caisse en (2,14) peut aller en -1, 0
+la caisse en (2,14) peut aller en 0, 1
+la caisse en (2,14) peut aller en 1, 0
+la caisse en (3,13) peut aller en 0, -1
+la caisse en (3,13) peut aller en -1, 0
+la caisse en (3,13) peut aller en 0, 1
+la caisse en (3,13) peut aller en 1, 0
+java.awt.Point[x=3,y=14] => 15
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=2,y=13] => 15
+=true, java.awt.Point[x=3,y=10] => 4
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=3,y=11] => 4
+=true, java.awt.Point[x=6,y=2] => 5
+=true, java.awt.Point[x=3,y=13] => 15
+=true, java.awt.Point[x=3,y=9] => 4
+=true, java.awt.Point[x=3,y=12] => 4
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=6,y=1] => 0
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=3,y=12] => 11
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 4
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=6,y=4] => 0
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 4
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=14] => 15
+
+la caisse en (3,13) peut aller en 0, -1
+la caisse en (3,13) peut aller en -1, 0
+la caisse en (3,13) peut aller en 0, 1
+la caisse en (3,13) peut aller en 1, 0
+la caisse en (2,14) peut aller en 0, -1
+la caisse en (2,14) peut aller en -1, 0
+la caisse en (2,14) peut aller en 0, 1
+la caisse en (2,14) peut aller en 1, 0
+la caisse en (3,15) peut aller en -1, 0
+la caisse en (3,15) peut aller en 1, 0
+la caisse en (4,14) peut aller en 0, -1
+la caisse en (4,14) peut aller en -1, 0
+la caisse en (4,14) peut aller en 0, 1
+la caisse en (4,14) peut aller en 1, 0
+java.awt.Point[x=4,y=13] => 15
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=2,y=13] => 15
+=true, java.awt.Point[x=3,y=10] => 4
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=3,y=11] => 4
+=true, java.awt.Point[x=3,y=14] => 15
+=true, java.awt.Point[x=6,y=2] => 5
+=true, java.awt.Point[x=3,y=13] => 15
+=true, java.awt.Point[x=3,y=9] => 4
+=true, java.awt.Point[x=3,y=12] => 4
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=6,y=1] => 0
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=3,y=12] => 11
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 4
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=6,y=4] => 0
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 4
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=4,y=13] => 15
+
+la caisse en (4,12) peut aller en -1, 0
+la caisse en (4,12) peut aller en 1, 0
+la caisse en (3,13) peut aller en 0, -1
+la caisse en (3,13) peut aller en -1, 0
+la caisse en (3,13) peut aller en 0, 1
+la caisse en (3,13) peut aller en 1, 0
+la caisse en (4,14) peut aller en 0, -1
+la caisse en (4,14) peut aller en -1, 0
+la caisse en (4,14) peut aller en 0, 1
+la caisse en (4,14) peut aller en 1, 0
+la caisse en (5,13) peut aller en 0, -1
+la caisse en (5,13) peut aller en -1, 0
+la caisse en (5,13) peut aller en 0, 1
+la caisse en (5,13) peut aller en 1, 0
+java.awt.Point[x=3,y=11] => 1
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=2,y=13] => 15
+=true, java.awt.Point[x=3,y=10] => 4
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=3,y=11] => 4
+=true, java.awt.Point[x=3,y=14] => 15
+=true, java.awt.Point[x=6,y=2] => 5
+=true, java.awt.Point[x=3,y=13] => 15
+=true, java.awt.Point[x=3,y=9] => 4
+=true, java.awt.Point[x=3,y=12] => 4
+=true, java.awt.Point[x=4,y=13] => 15
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=6,y=1] => 0
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=3,y=12] => 11
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 4
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=6,y=4] => 0
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 4
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=3,y=11] => 1
+
+la caisse en (3,10) peut aller en 0, -1
+java.awt.Point[x=2,y=12] => 10
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=2,y=13] => 15
+=true, java.awt.Point[x=3,y=10] => 4
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=3,y=11] => 4
+=true, java.awt.Point[x=3,y=14] => 15
+=true, java.awt.Point[x=6,y=2] => 5
+=true, java.awt.Point[x=3,y=13] => 15
+=true, java.awt.Point[x=3,y=9] => 4
+=true, java.awt.Point[x=3,y=11] => 1
+=true, java.awt.Point[x=3,y=12] => 4
+=true, java.awt.Point[x=4,y=13] => 15
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=6,y=1] => 0
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=3,y=12] => 11
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 4
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=6,y=4] => 0
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 4
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=2,y=12] => 10
+
+la caisse en (3,12) peut aller en 0, -1
+la caisse en (3,12) peut aller en -1, 0
+la caisse en (3,12) peut aller en 1, 0
+java.awt.Point[x=4,y=12] => 10
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=2,y=12] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=2,y=13] => 15
+=true, java.awt.Point[x=3,y=10] => 4
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=3,y=11] => 4
+=true, java.awt.Point[x=3,y=14] => 15
+=true, java.awt.Point[x=6,y=2] => 5
+=true, java.awt.Point[x=3,y=13] => 15
+=true, java.awt.Point[x=3,y=9] => 4
+=true, java.awt.Point[x=3,y=11] => 1
+=true, java.awt.Point[x=3,y=12] => 4
+=true, java.awt.Point[x=4,y=13] => 15
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=6,y=1] => 0
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=3,y=12] => 11
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 4
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=6,y=4] => 0
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 4
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=4,y=12] => 10
+
+la caisse en (3,12) peut aller en 0, -1
+la caisse en (3,12) peut aller en -1, 0
+la caisse en (3,12) peut aller en 1, 0
+la caisse en (5,12) peut aller en -1, 0
+la caisse en (5,12) peut aller en 1, 0
+java.awt.Point[x=2,y=12] => 10
+
+java.awt.Point[x=1,y=13] => 5
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=2,y=12] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=2,y=13] => 15
+=true, java.awt.Point[x=3,y=10] => 4
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=3,y=11] => 4
+=true, java.awt.Point[x=3,y=14] => 15
+=true, java.awt.Point[x=6,y=2] => 5
+=true, java.awt.Point[x=3,y=13] => 15
+=true, java.awt.Point[x=3,y=9] => 4
+=true, java.awt.Point[x=3,y=11] => 1
+=true, java.awt.Point[x=4,y=12] => 10
+=true, java.awt.Point[x=3,y=12] => 4
+=true, java.awt.Point[x=4,y=13] => 15
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=6,y=1] => 0
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=3,y=12] => 11
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 4
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=6,y=4] => 0
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 4
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true}
+Nouvelle situation : java.awt.Point[x=1,y=13] => 5
+
+la caisse en (1,14) peut aller en 0, -1
+la caisse en (1,14) peut aller en 0, 1
+java.awt.Point[x=2,y=14] => 15
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=2,y=12] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=2,y=13] => 15
+=true, java.awt.Point[x=3,y=10] => 4
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=3,y=11] => 4
+=true, java.awt.Point[x=3,y=14] => 15
+=true, java.awt.Point[x=6,y=2] => 5
+=true, java.awt.Point[x=3,y=13] => 15
+=true, java.awt.Point[x=3,y=9] => 4
+=true, java.awt.Point[x=3,y=11] => 1
+=true, java.awt.Point[x=4,y=12] => 10
+=true, java.awt.Point[x=3,y=12] => 4
+=true, java.awt.Point[x=4,y=13] => 15
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=6,y=1] => 0
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=3,y=12] => 11
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 4
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=6,y=4] => 0
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 4
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true, java.awt.Point[x=1,y=13] => 5
+=true}
+Nouvelle situation : java.awt.Point[x=2,y=14] => 15
+
+la caisse en (2,13) peut aller en 0, -1
+la caisse en (2,13) peut aller en -1, 0
+la caisse en (2,13) peut aller en 0, 1
+la caisse en (2,13) peut aller en 1, 0
+la caisse en (1,14) peut aller en 0, -1
+la caisse en (1,14) peut aller en 0, 1
+la caisse en (2,15) peut aller en -1, 0
+la caisse en (2,15) peut aller en 1, 0
+la caisse en (3,14) peut aller en 0, -1
+la caisse en (3,14) peut aller en -1, 0
+la caisse en (3,14) peut aller en 0, 1
+la caisse en (3,14) peut aller en 1, 0
+java.awt.Point[x=3,y=13] => 15
+
+java.awt.Point[x=3,y=13] => 15
+
+java.awt.Point[x=2,y=14] => 15
+
+java.awt.Point[x=3,y=15] => 10
+
+{java.awt.Point[x=1,y=1] => 0
+=true, java.awt.Point[x=3,y=6] => 1
+=true, java.awt.Point[x=3,y=1] => 10
+=true, java.awt.Point[x=2,y=12] => 10
+=true, java.awt.Point[x=5,y=2] => 15
+=true, java.awt.Point[x=2,y=14] => 15
+=true, java.awt.Point[x=3,y=6] => 4
+=true, java.awt.Point[x=6,y=3] => 5
+=true, java.awt.Point[x=2,y=13] => 15
+=true, java.awt.Point[x=3,y=10] => 4
+=true, java.awt.Point[x=4,y=4] => 10
+=true, java.awt.Point[x=3,y=11] => 4
+=true, java.awt.Point[x=3,y=14] => 15
+=true, java.awt.Point[x=6,y=2] => 5
+=true, java.awt.Point[x=3,y=13] => 15
+=true, java.awt.Point[x=3,y=9] => 4
+=true, java.awt.Point[x=3,y=11] => 1
+=true, java.awt.Point[x=4,y=12] => 10
+=true, java.awt.Point[x=3,y=12] => 4
+=true, java.awt.Point[x=4,y=13] => 15
+=true, java.awt.Point[x=5,y=1] => 10
+=true, java.awt.Point[x=3,y=2] => 15
+=true, java.awt.Point[x=6,y=1] => 0
+=true, java.awt.Point[x=2,y=1] => 10
+=true, java.awt.Point[x=3,y=12] => 11
+=true, java.awt.Point[x=1,y=3] => 5
+=true, java.awt.Point[x=4,y=2] => 15
+=true, java.awt.Point[x=1,y=4] => 0
+=true, java.awt.Point[x=3,y=4] => 14
+=true, java.awt.Point[x=2,y=3] => 15
+=true, java.awt.Point[x=3,y=4] => 1
+=true, java.awt.Point[x=4,y=1] => 10
+=true, java.awt.Point[x=2,y=2] => 15
+=true, java.awt.Point[x=3,y=7] => 4
+=true, java.awt.Point[x=3,y=7] => 1
+=true, java.awt.Point[x=1,y=2] => 5
+=true, java.awt.Point[x=5,y=4] => 10
+=true, java.awt.Point[x=4,y=3] => 15
+=true, java.awt.Point[x=3,y=5] => 4
+=true, java.awt.Point[x=6,y=4] => 0
+=true, java.awt.Point[x=3,y=8] => 1
+=true, java.awt.Point[x=2,y=4] => 10
+=true, java.awt.Point[x=5,y=3] => 15
+=true, java.awt.Point[x=3,y=8] => 4
+=true, java.awt.Point[x=3,y=5] => 1
+=true, java.awt.Point[x=3,y=3] => 15
+=true, java.awt.Point[x=1,y=13] => 5
+=true}
+GG
