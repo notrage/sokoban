@@ -8,11 +8,26 @@ import java.util.Objects;
 
 public class Situation {
     HashMap<Point, Integer> positionCaisses;
-
+    public Situation pere; 
+    public Point positionPousseur;
+    
     public Situation(HashMap<Point, Integer> pC) {
-        positionCaisses = pC;
+        this(pC, null);
     }
 
+    public Situation(HashMap<Point, Integer> pC, Point pousseur) {
+        positionCaisses = pC;
+        positionPousseur = pousseur;
+        pere = null;
+    }
+    public Situation getPere(){
+        return pere;
+    }
+
+    public Point pousseur(){
+        return positionPousseur;
+    }
+    
     public Situation[] futurSituations(Niveau n) {
         int[][] directions = { { 0, -1 }, { -1, 0 }, { 0, 1 }, { 1, 0 } };
         Situation[] fS = new Situation[positionCaisses.size() * 4];
@@ -32,6 +47,7 @@ public class Situation {
                     Coup c = new Coup(departJoueur, arriveJoueur, arriveCaisse);
                     n.jouerCoup(c, false);
                     fS[idx] = n.toSituation();
+                    fS[idx].pere = this;
                     idx++;
                     n.annulerDernierCoup();
                     n.caisses = tmp;

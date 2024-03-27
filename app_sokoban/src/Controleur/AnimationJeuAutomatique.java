@@ -26,7 +26,7 @@ public class AnimationJeuAutomatique implements ActionListener {
         animationCaisse = caisse;
         this.inter = inter;
         jeu = j;
-        timer = new Timer(1000, this);
+        timer = new Timer(500, this);
     }
 
     public void toggleIA() {
@@ -34,7 +34,8 @@ public class AnimationJeuAutomatique implements ActionListener {
             timer.stop();
         } else {
             generateur = new GenerateurCoups(jeu.niveau());
-            generateur.solver();
+            coups = generateur.solver_BFS();
+            timer.start();
         }
     }
 

@@ -71,7 +71,7 @@ public class Jeu {
 		courant.resetMarques();
 	}	
 
-
-
-
+	public void genereHeuristique(){
+		courant.genereHeuristique();
+	}
 }

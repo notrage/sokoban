@@ -21,6 +21,8 @@ public class Niveau {
 
 	private int[][] contenu;
 	private Marque[][] marques;
+	private int[][] chemins;
+	private int[][] heuristique;
 	private int l, c;
 	private String nom;
 	private int pousseurL, pousseurC;
@@ -35,6 +37,7 @@ public class Niveau {
 	Niveau() {
 		contenu = new int[1][1];
 		marques = new Marque[1][1];
+		chemins = new int[1][1];
 		l = 0;
 		c = 0;
 		coups = new ArrayList<>();
@@ -55,17 +58,19 @@ public class Niveau {
 		if ((oldL <= l) || (oldC <= c)) {
 			int newL = ajuste(oldL, l);
 			int newC = ajuste(oldC, c);
-			System.err.println("Redimensionnement : " + newL + "*" + newC);
 			int[][] newTab = new int[newL][newC];
 			Marque[][] newMarques = new Marque[newL][newC];
+			int[][] newChemins = new int[newL][newC];
 			for (int i = 0; i < oldL; i++) {
 				for (int j = 0; j < oldC; j++) {
 					newMarques[i][j] = marques[i][j];
 					newTab[i][j] = contenu[i][j];
+					newChemins[i][j] = chemins[i][j];
 				}
 			}
 			contenu = newTab;
 			marques = newMarques;
+			chemins = newChemins;
 		}
 	}
 
@@ -90,13 +95,13 @@ public class Niveau {
 			if (aBut(i, j))
 				nbCaisseSurBut++;
 		}
-		if ((element & BUT) > 0){
+		if ((element & BUT) > 0) {
 			nbBut++;
-			if (aCaisse(i, j)){
+			if (aCaisse(i, j)) {
 				nbCaisseSurBut++;
 			}
 		}
-		if ((element & POUSSEUR) > 0){
+		if ((element & POUSSEUR) > 0) {
 			pousseurL = i;
 			pousseurC = j;
 		}
@@ -200,7 +205,8 @@ public class Niveau {
 
 	public void ajouteBut(int i, int j) {
 		// System.out.println("Ajout d'un but en (" + i + ", " + j + ")");
-		ajoute(BUT, i, j);;
+		ajoute(BUT, i, j);
+		;
 	}
 
 	public int lignes() {
@@ -300,8 +306,10 @@ public class Niveau {
 		return caisses;
 	}
 
-	// Methode pour marquer toutes les cases accessibles depuis la i,j
+	// Methode pour marquer toutes les cases accessibles depuis la i,j (i,j sera
+	// accessible en tout cas)
 	public void marqueAccessibles(int l, int c) {
+		resetMarques();
 		int[][] directions = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
 		Queue<Marque> f = new LinkedList<>();
 		Marque m;
@@ -336,17 +344,98 @@ public class Niveau {
 				if (marques[caisse.x - directions[j][0]][caisse.y - directions[j][1]] != null
 						&& estLibre(caisse.x + directions[j][0], caisse.y + directions[j][1])) {
 					pC.put(caisse, pC.get(caisse) | 1 << j);
-					//System.out.println("la caisse en (" + caisse.x + ',' + caisse.y + ") peut aller en "
-					//		+ directions[j][0] + ", " + directions[j][1]);
+					// System.out.println("la caisse en (" + caisse.x + ',' + caisse.y + ") peut
+					// aller en "
+					// + directions[j][0] + ", " + directions[j][1]);
 				}
 			}
 		}
 		return pC;
 	}
 
+	public void remplirChemins() {
+		for (int i = 0; i < lignes(); i++) {
+			for (int j = 0; j < colonnes(); j++) {
+				if (aBut(i, j)) {
+					chemins[i][j] = 0;
+				} else {
+					chemins[i][j] = 1;
+				}
+			}
+		}
+		boolean ajouter = true;
+		while (ajouter) {
+			ajouter = false;
+
+		}
+	}
+
 	public Situation toSituation() {
 		resetMarques();
 		marqueAccessibles(pousseurL, pousseurC);
-		return new Situation(deplacementsCaisses());
+		return new Situation(deplacementsCaisses(), new Point(pousseurL(), pousseurC()));
+	}
+
+	Marque[][] marques() {
+		return marques;
+	}
+
+	public void genereHeuristique() {
+		System.out.println("Generation heuristique");
+		int[][] directions = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
+		heuristique = new int[lignes()][colonnes()];
+		int i, j, k, acc_i, acc_j, der_i, der_j;
+		boolean ajoute;
+
+		for (i = 0; i < lignes(); i++) {
+			for (j = 0; j < colonnes(); j++) {
+				if (aBut(i, j)) {
+					heuristique[i][j] = 0;
+				} else {
+					heuristique[i][j] = Integer.MAX_VALUE;
+				}
+			}
+		}
+
+		ajoute = true;
+
+		while (ajoute) {
+			ajoute = false;
+			for (i = 0; i < lignes(); i++) {
+				for (j = 0; j < colonnes(); j++) {
+					for (k = 0; k < 4; k++) {
+						acc_i = i + directions[k][0];
+						acc_j = j + directions[k][1];
+						der_i = i - directions[k][0];
+						der_j = j - directions[k][1];
+						// si la case adjacente de dépasse pas de la map
+						// et que la case adjacente est accessible
+						// et qu'il est possible de pousser une caisse dessus
+						if (acc_i >= 0 && acc_i < lignes() && acc_j >= 0 && acc_j < colonnes() &&
+								der_i >= 0 && der_i < lignes() && der_j >= 0 && der_j < colonnes() &&
+								heuristique[i][j] == Integer.MAX_VALUE &&
+								heuristique[acc_i][acc_j] != Integer.MAX_VALUE &&
+								!aMur(der_i, der_j) && !aMur(i, j)) {
+							heuristique[i][j] = heuristique[acc_i][acc_j] + 1;
+							ajoute = true;
+						}
+					}
+				}
+			}
+		}
+		for (i = 0; i < lignes(); i++) {
+			for (j = 0; j < colonnes(); j++) {
+				if (aMur(i, j))
+					System.out.print("#  ");
+				else if (heuristique[i][j] == Integer.MAX_VALUE)
+					System.out.print("X  ");
+				else if (heuristique[i][j] >= 10)
+					System.out.print(heuristique[i][j] + " ");
+				else
+					System.out.print(heuristique[i][j] + "  ");
+
+			}
+			System.out.println();
+		}
 	}
 }

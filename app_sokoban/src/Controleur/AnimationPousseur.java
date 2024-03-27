@@ -18,7 +18,7 @@ public class AnimationPousseur implements ActionListener {
         this.inter = inter;
         n_etape = 0;
         max_etape = 4;
-        timer = new Timer(250, this);
+        timer = new Timer(100, this);
         timer.start();
     }
 

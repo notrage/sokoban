@@ -87,6 +87,9 @@ public class AdaptateurClavier extends KeyAdapter {
 			case KeyEvent.VK_N:
 				jeu.prochainNiveau();
 				break;
+			case KeyEvent.VK_H:
+				jeu.genereHeuristique();
+				break;
 		}
 		inter.repaint();
 	}

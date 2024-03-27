@@ -1,5 +1,4 @@
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.awt.Point;
 
@@ -8,22 +7,19 @@ import Modele.Situation;
 public class TestHASH {
     public static void main(String[] args) {
         // Création de deux ensembles de points pour les caisses
-        HashSet<Point> positionCaisses1 = new HashSet<>();
-        positionCaisses1.add(new Point(1, 2));
-        positionCaisses1.add(new Point(3, 4));
-
-        HashSet<Point> positionCaisses2 = new HashSet<>();
-        positionCaisses2.add(new Point(3, 4));
-        positionCaisses2.add(new Point(1, 2));
+        HashMap<Point, Integer> positionCaisses1 = new HashMap<>();
+        positionCaisses1.put(new Point(1, 2), 1);
+        positionCaisses1.put(new Point(3, 4), 2);
+                                
+        HashMap<Point, Integer> positionCaisses2 = new HashMap<>();
+        positionCaisses2.put(new Point(3, 4), 2);
+        positionCaisses2.put(new Point(1, 2), 1);
 
         // Création de deux tableaux d'entiers pour les positions futures des caisses
-        int[] positionFuturCaisses1 = { 1, 2 };
-        int[] positionFuturCaisses2 = { 1, 2 };
-
         // Création de deux objets Situation
-        Situation situation1 = new Situation(positionCaisses1, positionFuturCaisses1);
-        Situation situation2 = new Situation(positionCaisses2, positionFuturCaisses2);
-
+        Situation situation1 = new Situation(positionCaisses1, new Point(0, 0));
+        Situation situation2 = new Situation(positionCaisses2,  new Point(0, 0));
+        situation1.pere = situation2;
         // Création d'une HashMap qui utilise Situation comme clé
         Map<Situation, String> map = new HashMap<>();
 
