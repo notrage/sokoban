@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 
 import Modele.Coup;
 import Modele.Jeu;
+import Modele.Niveau;
 import Vue.InterfaceGraphique;
 
 public class AdaptateurClavier extends KeyAdapter {
@@ -22,12 +23,15 @@ public class AdaptateurClavier extends KeyAdapter {
 	void deplace(int l, int c) {
 		Coup dernierCoup;
 		if (!animationPousseur.animationEnCours() && !animationCaisse.animationEnCours()) {
+			Niveau tmp = jeu.niveau();
 			if (jeu.deplace(l, c) && (dernierCoup = jeu.dernierCoup()) != null) {
-				animationPousseur.nouvelleAnimation(dernierCoup.departPousseur(), dernierCoup.arriveePousseur());
-				if (dernierCoup.aCaisse()) {
-					animationCaisse.nouvelleAnimation(dernierCoup.departCaisse(), dernierCoup.arriveeCaisse());
+				if (tmp == jeu.niveau()) {
+					animationPousseur.nouvelleAnimation(dernierCoup.departPousseur(), dernierCoup.arriveePousseur());
+					if (dernierCoup.aCaisse()) {
+						animationCaisse.nouvelleAnimation(dernierCoup.departCaisse(), dernierCoup.arriveeCaisse());
+					}
+					inter.repaint();
 				}
-				inter.repaint();
 			}
 		}
 	}
@@ -88,7 +92,7 @@ public class AdaptateurClavier extends KeyAdapter {
 				jeu.prochainNiveau();
 				break;
 			case KeyEvent.VK_H:
-				jeu.genereHeuristique();
+				jeu.afficherHeuristique();
 				break;
 		}
 		inter.repaint();

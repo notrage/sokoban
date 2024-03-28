@@ -40,7 +40,7 @@ public class AdaptateurSouris extends MouseAdapter {
 		int dX = x - jeu.pousseurC();
 		int dY = y - jeu.pousseurL();
 		int sum = dX + dY;
-		Configuration.instance().logger().info("Clic dans la case (" + x + ", " + y + ") soit une direction : " + dX + ", " + dY);
+		System.out.println("Clic dans la case (" + x + ", " + y + ") soit une direction : " + dX + ", " + dY);
 		if ((dX * dY == 0) && (sum * sum == 1)) {
 			deplace(dY, dX);
 		}

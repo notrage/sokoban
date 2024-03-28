@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 class TestZoneDeJeu {
 	static void execute(String s, ZoneDeJeuAbstraite z) {
-		String [] parts = s.split("\\s+");
-		int [] args = new int[parts.length - 1];
+		String[] parts = s.split("\\s+");
+		int[] args = new int[parts.length - 1];
 
 		try {
 			for (int i = 0; i < parts.length - 1; i++)
@@ -46,10 +46,10 @@ class TestZoneDeJeu {
 		}
 	}
 
-	public static void main(String [] args) {
+	public static void main(String[] args) {
 		ZoneDeJeuAbstraite z = null;
 		String fichierSortie = null;
-		int width=5, height=5;
+		int width = 5, height = 5;
 		int indiceOption = 0;
 		boolean finOptions = false;
 
@@ -69,24 +69,29 @@ class TestZoneDeJeu {
 					indiceOption += 2;
 					break;
 				case "-w":
-					width = Integer.parseInt(args[indiceOption+1]);
+					width = Integer.parseInt(args[indiceOption + 1]);
 					indiceOption += 2;
 					break;
 				case "-h":
-					height = Integer.parseInt(args[indiceOption+1]);
+					height = Integer.parseInt(args[indiceOption + 1]);
 					indiceOption += 2;
 					break;
 				default:
 					finOptions = true;
 			}
 		}
-		if (indiceOption  >= args.length) {
+		if (indiceOption >= args.length) {
 			System.err.println("Utilisation :\n" +
-					"TestZone [ -i inputfile ] [ -o outputfile ] [ -w width ] [ -h height ] interactive|random [ graine ] [ nb_iterations ]\n" +
-					"Ce programme permet de tester l'utilisation d'une zone avec historique soit en prennant ses commandes depuis l'entrée standard (mode interactive),\n" +
-					"soit en les tirant au hasard (mode random). Si l'option '-i' est donnée, l'état initial de la zone est lu depuis le fichier 'inputfile'. Si l'option\n" +
-					"'-o' est donnée, l'état final de la zone est écrit dans le fichier 'outputfile'. Lorsque la zone n'est pas lue depuis un fichier, sa largeur et sa\n" +
-					"hauteur sont données par width et height (5 et 5 par défaut). Les commandes sont les suivantes :\n" +
+					"TestZone [ -i inputfile ] [ -o outputfile ] [ -w width ] [ -h height ] interactive|random [ graine ] [ nb_iterations ]\n"
+					+
+					"Ce programme permet de tester l'utilisation d'une zone avec historique soit en prennant ses commandes depuis l'entrée standard (mode interactive),\n"
+					+
+					"soit en les tirant au hasard (mode random). Si l'option '-i' est donnée, l'état initial de la zone est lu depuis le fichier 'inputfile'. Si l'option\n"
+					+
+					"'-o' est donnée, l'état final de la zone est écrit dans le fichier 'outputfile'. Lorsque la zone n'est pas lue depuis un fichier, sa largeur et sa\n"
+					+
+					"hauteur sont données par width et height (5 et 5 par défaut). Les commandes sont les suivantes :\n"
+					+
 					"- joue valeur ligne colonne\n" +
 					"- valeur ligne colonne\n" +
 					"- deplace depuis_ligne depuis_colonne vers_ligne vers_colonne\n" +
@@ -108,7 +113,7 @@ class TestZoneDeJeu {
 				Random r;
 				int size;
 
-				Point [] directions = new Point[8];
+				Point[] directions = new Point[8];
 				// Les directions possibles
 				size = 0;
 				for (int l = -1; l < 2; l++)
@@ -148,7 +153,7 @@ class TestZoneDeJeu {
 											pions.add(new Point(c, l));
 									}
 								// S'il y a assez d'espace pour trouver facilement un déplacement
-								if ((pions.size() > 0) && (pions.size() < 0.8*z.nbLignes()*z.nbColonnes())) {
+								if ((pions.size() > 0) && (pions.size() < 0.8 * z.nbLignes() * z.nbColonnes())) {
 									boolean found = false;
 
 									while (!found) {
@@ -168,7 +173,8 @@ class TestZoneDeJeu {
 										}
 										if (libres.size() > 0) {
 											Point coup = libres.get(r.nextInt(libres.size()));
-											System.out.println("deplace " + pion.y + " " + pion.x + " " + coup.y + " " + coup.x);
+											System.out.println(
+													"deplace " + pion.y + " " + pion.x + " " + coup.y + " " + coup.x);
 											z.deplace(pion.y, pion.x, coup.y, coup.x);
 											found = true;
 										}

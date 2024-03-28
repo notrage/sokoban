@@ -10,15 +10,15 @@ public class Situation {
     HashMap<Point, Integer> positionCaisses;
     public Situation pere; 
     public Point positionPousseur;
-    
-    public Situation(HashMap<Point, Integer> pC) {
-        this(pC, null);
-    }
+    int scoreHeuristique;
+    int nombreDeplacementsCaisses;
+    int nombreDeplacementsJoueuers;
 
-    public Situation(HashMap<Point, Integer> pC, Point pousseur) {
+    public Situation(HashMap<Point, Integer> pC, Point pousseur, int scoreHeuristique) {
         positionCaisses = pC;
         positionPousseur = pousseur;
         pere = null;
+        this.scoreHeuristique = scoreHeuristique;
     }
     public Situation getPere(){
         return pere;
@@ -26,6 +26,10 @@ public class Situation {
 
     public Point pousseur(){
         return positionPousseur;
+    }
+
+    public int scoreHeuristique() {
+        return scoreHeuristique;
     }
     
     public Situation[] futurSituations(Niveau n) {

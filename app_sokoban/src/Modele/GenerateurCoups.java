@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class GenerateurCoups {
@@ -15,6 +16,39 @@ public class GenerateurCoups {
     public GenerateurCoups(Niveau n) {
         niveau = n.clone();
         pousseur = new Point(niveau.pousseurL(), niveau.pousseurC());
+    }
+
+    public ArrayList<Coup> solverAStar() {
+        Situation s = niveau.toSituation();
+        HashSet<Situation> situationsSet = new HashSet<>();
+
+        // création de la file à priorité pour notre parcours de graphe de situation
+        PriorityQueue<Situation> fap = new PriorityQueue<Situation>(
+                (Situation s1, Situation s2) -> Integer.compare(
+                        s1.scoreHeuristique(), s2.scoreHeuristique()));
+
+        fap.add(s);
+        int n_sit = 0;
+        while (!fap.isEmpty()) {
+            s = fap.remove();
+            if (!situationsSet.contains(s)) {
+                situationsSet.add(s);
+                System.out.print("\r" + n_sit);
+                if (s.gagnante(niveau)) {
+                    System.out.println("\nVictoire avec " + n_sit + " situations explorées");
+                    return recuperationCoups(s);
+                }
+                n_sit++;
+                Situation[] nextS = s.futurSituations(niveau);
+                for (int i = 0; i < nextS.length; i++) {
+                    if (nextS[i] != null) {
+                        fap.add(nextS[i]);
+                    }
+                }
+            }
+        }
+        System.out.println("Défaite avec " + n_sit + " situations explorées");
+        return null;
     }
 
     public ArrayList<Coup> solver_BFS() {
@@ -69,7 +103,7 @@ public class GenerateurCoups {
         HashSet<Point> tmp = niveau.caisses;
         niveau.caisses = new HashSet<>(sitDebut.positionCaisses.keySet());
         niveau.marqueAccessibles(sitDebut.pousseur().x, sitDebut.pousseur().y);
-        niveau.caisses = tmp; 
+        niveau.caisses = tmp;
         // on récupère les positions des caisses à la fin et au début
         HashMap<Point, Integer> caissesDep = sitDebut.positionCaisses;
         HashMap<Point, Integer> caissesArr = sitFin.positionCaisses;
@@ -88,7 +122,7 @@ public class GenerateurCoups {
         // On cherche la position du joueur à la fin
         int diffX = aP.x - dP.x;
         int diffY = aP.y - dP.y;
-        Marque courant = new Marque(aP, new Point(aP.x + diffX, aP.y + diffY));
+        Marque courant = new Marque(aP, new Point(aP.x + diffX, aP.y + diffY), 0);
         niveau.marques()[aP.x][aP.y] = courant;
 
         // on effectue un itération de la boucle while avant celle-ci
@@ -101,11 +135,11 @@ public class GenerateurCoups {
         // on itère sur les cases précédentes pour ajouter les coups jusqu'à
         // l'emplacement du pousseur
         while (courant != null && courant.casePrecedente != null) {
-            listeCoups.add(new Coup(courant.casePrecedente,  courant.caseCourante));
+            listeCoups.add(new Coup(courant.casePrecedente, courant.caseCourante));
             courant = niveau.marques()[courant.casePrecedente.x][courant.casePrecedente.y];
         }
 
-        //Collections.reverse(listeCoups);
+        // Collections.reverse(listeCoups);
 
         return listeCoups;
     }

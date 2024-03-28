@@ -10,6 +10,7 @@ import javax.swing.Timer;
 import Modele.Coup;
 import Modele.GenerateurCoups;
 import Modele.Jeu;
+import Modele.Niveau;
 import Vue.InterfaceGraphique;
 
 public class AnimationJeuAutomatique implements ActionListener {
@@ -34,27 +35,28 @@ public class AnimationJeuAutomatique implements ActionListener {
             timer.stop();
         } else {
             generateur = new GenerateurCoups(jeu.niveau());
-            coups = generateur.solver_BFS();
+            coups = generateur.solverAStar();
             timer.start();
         }
     }
 
     public void actionPerformed(ActionEvent evt) {
-        if (coups.size() <= 0){
+        if (coups == null || coups.size() <= 0) {
             return;
         }
         while (animationPousseur.animationEnCours() || animationCaisse.animationEnCours())
             ;
+        Niveau tmp = jeu.niveau();
         Coup c = coups.remove(0);
         if (jeu.deplace(c.directionX(), c.directionY())) {
-            Coup dernierCoup = jeu.dernierCoup();
-            jeu.marquer(dernierCoup.departPousseur().x, dernierCoup.departPousseur().y);
-            animationPousseur.nouvelleAnimation(dernierCoup.departPousseur(), dernierCoup.arriveePousseur());
-            if (dernierCoup.aCaisse()) {
-                animationCaisse.nouvelleAnimation(dernierCoup.departCaisse(), dernierCoup.arriveeCaisse());
+            if (tmp == jeu.niveau()) {
+                Coup dernierCoup = jeu.dernierCoup();
+                animationPousseur.nouvelleAnimation(dernierCoup.departPousseur(), dernierCoup.arriveePousseur());
+                if (dernierCoup.aCaisse()) {
+                    animationCaisse.nouvelleAnimation(dernierCoup.departCaisse(), dernierCoup.arriveeCaisse());
+                }
+                inter.repaint();
             }
-            inter.repaint();
         }
-
     }
 }

@@ -1,7 +1,4 @@
 package Modele;
-
-import Global.Configuration;
-
 public class Jeu {
 	Niveau courant;
 	LecteurNiveau lecteur;
@@ -17,7 +14,7 @@ public class Jeu {
 
 	public boolean deplace(int l, int c) {
 		if (!courant.deplace(l, c)) {
-			Configuration.instance().logger().info("Déplacement impossible");
+			System.out.println("Déplacement impossible");
 			return false;
 		}
 		if (courant.estTermine())
@@ -73,5 +70,9 @@ public class Jeu {
 
 	public void genereHeuristique(){
 		courant.genereHeuristique();
+	}
+
+	public void afficherHeuristique(){
+		courant.afficherHeuristique();
 	}
 }

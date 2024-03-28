@@ -284,7 +284,7 @@ public class Niveau {
 
 	public boolean marquer(int l, int c) {
 		if (marques[l][c] == null) {
-			marques[l][c] = new Marque(l, c);
+			marques[l][c] = new Marque(l, c, 0);
 			return true;
 		}
 		return false;
@@ -313,7 +313,7 @@ public class Niveau {
 		int[][] directions = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
 		Queue<Marque> f = new LinkedList<>();
 		Marque m;
-		f.add(new Marque(new Point(l, c), null));
+		f.add(new Marque(new Point(l, c), null, 0));
 		while (!f.isEmpty()) {
 			m = f.remove();
 			int i = m.caseCourante.x;
@@ -325,7 +325,7 @@ public class Niveau {
 				for (int[] direction : directions) {
 					int di = direction[0];
 					int dj = direction[1];
-					f.add(new Marque(new Point(i + di, j + dj), m.caseCourante));
+					f.add(new Marque(new Point(i + di, j + dj), m.caseCourante, m.distance));
 				}
 			}
 		}
@@ -373,15 +373,39 @@ public class Niveau {
 	public Situation toSituation() {
 		resetMarques();
 		marqueAccessibles(pousseurL, pousseurC);
-		return new Situation(deplacementsCaisses(), new Point(pousseurL(), pousseurC()));
+		genereHeuristique();
+		int score_heuristique = 0;
+		for (Point p : caisses) {
+			score_heuristique += heuristique[p.x][p.y];
+		}
+		return new Situation(deplacementsCaisses(), new Point(pousseurL(), pousseurC()), score_heuristique);
 	}
 
 	Marque[][] marques() {
 		return marques;
 	}
 
+	public void afficherHeuristique() {
+		genereHeuristique();
+		for (int i = 0; i < lignes(); i++) {
+			for (int j = 0; j < colonnes(); j++) {
+				if (aMur(i, j))
+					System.out.print("#  ");
+				else if (heuristique[i][j] == Integer.MAX_VALUE)
+					System.out.print("X  ");
+				else if (heuristique[i][j] >= 10)
+					System.out.print(heuristique[i][j] + " ");
+				else
+					System.out.print(heuristique[i][j] + "  ");
+
+			}
+			System.out.println();
+		}
+	}
+
 	public void genereHeuristique() {
-		System.out.println("Generation heuristique");
+		if (heuristique != null)
+			return;
 		int[][] directions = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
 		heuristique = new int[lignes()][colonnes()];
 		int i, j, k, acc_i, acc_j, der_i, der_j;
@@ -422,20 +446,6 @@ public class Niveau {
 					}
 				}
 			}
-		}
-		for (i = 0; i < lignes(); i++) {
-			for (j = 0; j < colonnes(); j++) {
-				if (aMur(i, j))
-					System.out.print("#  ");
-				else if (heuristique[i][j] == Integer.MAX_VALUE)
-					System.out.print("X  ");
-				else if (heuristique[i][j] >= 10)
-					System.out.print(heuristique[i][j] + " ");
-				else
-					System.out.print(heuristique[i][j] + "  ");
-
-			}
-			System.out.println();
 		}
 	}
 }
