@@ -325,32 +325,32 @@ public class Niveau {
 				for (int[] direction : directions) {
 					int di = direction[0];
 					int dj = direction[1];
-					f.add(new Marque(new Point(i + di, j + dj), m.caseCourante, m.distance));
+					f.add(new Marque(new Point(i + di, j + dj), m.caseCourante, m.distance + 1));
 				}
 			}
 		}
 	}
 
-	public HashMap<Point, Integer> deplacementsCaisses() {
-		HashMap<Point, Integer> pC = new HashMap<>();
+	public void deplacementsCaisses(HashMap<Point, Integer> pC, HashMap<Point, int[]> dJ) {
 		// gauche, haut, droite, bas
 		int[][] directions = { { 0, -1 }, { -1, 0 }, { 0, 1 }, { 1, 0 } };
 		for (Point caisse : caisses) {
 			if (!pC.containsKey(caisse)) {
 				pC.put(caisse, 0);
 			}
+			if (!dJ.containsKey(caisse)){
+				dJ.put(caisse, new int[4]);
+			}
 			for (int j = 0; j < 4; j++) {
 				// System.out.println(caisse);
 				if (marques[caisse.x - directions[j][0]][caisse.y - directions[j][1]] != null
 						&& estLibre(caisse.x + directions[j][0], caisse.y + directions[j][1])) {
 					pC.put(caisse, pC.get(caisse) | 1 << j);
-					// System.out.println("la caisse en (" + caisse.x + ',' + caisse.y + ") peut
-					// aller en "
-					// + directions[j][0] + ", " + directions[j][1]);
+					dJ.get(caisse)[j] = marques[caisse.x - directions[j][0]][caisse.y - directions[j][1]].distance;
 				}
 			}
 		}
-		return pC;
+		return;
 	}
 
 	public void remplirChemins() {
@@ -370,7 +370,7 @@ public class Niveau {
 		}
 	}
 
-	public Situation toSituation() {
+	public Situation toSituation(int totalDeplacementsCaisses, int totalDeplacementsJoueur) {
 		resetMarques();
 		marqueAccessibles(pousseurL, pousseurC);
 		genereHeuristique();
@@ -378,7 +378,11 @@ public class Niveau {
 		for (Point p : caisses) {
 			score_heuristique += heuristique[p.x][p.y];
 		}
-		return new Situation(deplacementsCaisses(), new Point(pousseurL(), pousseurC()), score_heuristique);
+		HashMap<Point, Integer> pC = new HashMap<>();
+		HashMap<Point, int[]> dJ = new HashMap<>();
+		deplacementsCaisses(pC, dJ);
+		return new Situation(pC, new Point(pousseurL(), pousseurC()),
+				score_heuristique, totalDeplacementsCaisses, dJ, totalDeplacementsJoueur);
 	}
 
 	Marque[][] marques() {
@@ -420,9 +424,7 @@ public class Niveau {
 				}
 			}
 		}
-
 		ajoute = true;
-
 		while (ajoute) {
 			ajoute = false;
 			for (i = 0; i < lignes(); i++) {

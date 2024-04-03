@@ -18,15 +18,15 @@ public class GenerateurCoups {
         pousseur = new Point(niveau.pousseurL(), niveau.pousseurC());
     }
 
-    public ArrayList<Coup> solverAStar() {
-        Situation s = niveau.toSituation();
+    public ArrayList<Coup> solver_minDeplacementCaisse() {
+        Situation s = niveau.toSituation(0, 0);
         HashSet<Situation> situationsSet = new HashSet<>();
-
+        
         // création de la file à priorité pour notre parcours de graphe de situation
         PriorityQueue<Situation> fap = new PriorityQueue<Situation>(
                 (Situation s1, Situation s2) -> Integer.compare(
-                        s1.scoreHeuristique(), s2.scoreHeuristique()));
-
+                        s1.scoreHeuristique(),
+                        s2.scoreHeuristique()));
         fap.add(s);
         int n_sit = 0;
         while (!fap.isEmpty()) {
@@ -35,7 +35,9 @@ public class GenerateurCoups {
                 situationsSet.add(s);
                 System.out.print("\r" + n_sit);
                 if (s.gagnante(niveau)) {
-                    System.out.println("\nVictoire avec " + n_sit + " situations explorées");
+                    System.out.println("\nVictoire avec " + n_sit + " situations explorées en "
+                            + s.totalDeplacementsJoueur + " deplacements de joueur et " + s.totalDeplacementsCaisses
+                            + " deplacements de caisses");
                     return recuperationCoups(s);
                 }
                 n_sit++;
@@ -50,19 +52,65 @@ public class GenerateurCoups {
         System.out.println("Défaite avec " + n_sit + " situations explorées");
         return null;
     }
+    
+    
+
+    public ArrayList<Coup> solver_minDeplacementJoueur() {
+        SituationDepCaisse s =  new SituationDepCaisse(niveau.toSituation(0, 0));
+        HashSet<SituationDepCaisse> situationsSet = new HashSet<>();
+        HashMap<SituationDepCaisse, Integer> distance = new HashMap<>();
+        // création de la file à priorité pour notre parcours de graphe de situation
+        PriorityQueue<SituationDepCaisse> fap = new PriorityQueue<SituationDepCaisse>(
+                (SituationDepCaisse s1, SituationDepCaisse s2) -> Integer.compare(
+                        distance.get(s1) + s1.scoreHeuristique(),
+                        distance.get(s2) + s2.scoreHeuristique()));
+        distance.put(s, 0);
+        fap.add(s);
+        int n_sit = 0;
+        while (!fap.isEmpty()) {
+            s = fap.remove();
+            if (!situationsSet.contains(s)) {
+                situationsSet.add(s);
+                System.out.print("\r" + n_sit);
+                if (s.gagnante(niveau)) {
+                    System.out.println("\nVictoire avec " + n_sit + " situations explorées en "
+                            + s.totalDeplacementsJoueur + " deplacements de joueur et " + s.totalDeplacementsCaisses
+                            + " deplacements de caisses");
+                    return recuperationCoups(s);
+                }
+                n_sit++;
+                Situation[] nextS =  s.futurSituations(niveau);
+                for (int i = 0; i < nextS.length; i++) {
+                    if (nextS[i] != null) { 
+                        SituationDepCaisse nexts = new SituationDepCaisse(nextS[i]);
+                        if (!distance.containsKey(nexts)){
+                            distance.put(nexts, nexts.totalDeplacementsJoueur);
+                            fap.add(nexts);
+                        } else if (distance.get(nexts) > nexts.totalDeplacementsJoueur){
+                            distance.put(nexts, nexts.totalDeplacementsJoueur);
+                            fap.remove(nexts);
+                            fap.add(nexts);
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println("Défaite avec " + n_sit + " situations explorées");
+        return null;
+    } 
 
     public ArrayList<Coup> solver_BFS() {
-        Situation s = niveau.toSituation();
+        Situation s = niveau.toSituation(0, 0);
         HashSet<Situation> situationsSet = new HashSet<>();
         Queue<Situation> f = new LinkedList<>();
         f.add(s);
         int n_sit = 0;
         while (!f.isEmpty()) {
             s = f.remove();
-            // System.out.println(s);
             if (!situationsSet.contains(s)) {
-                // System.out.println(situationsMap);
+                System.out.println(s);
                 situationsSet.add(s);
+                // System.out.print("\r" + n_sit);
                 if (s.gagnante(niveau)) {
                     System.out.println("Victoire avec " + n_sit + " situations explorées");
                     return recuperationCoups(s);

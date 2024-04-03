@@ -1,6 +1,4 @@
 package Controleur;
-
-import Global.Configuration;
 import Modele.Coup;
 import Modele.Jeu;
 import Vue.InterfaceGraphique;

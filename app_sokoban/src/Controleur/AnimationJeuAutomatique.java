@@ -35,7 +35,7 @@ public class AnimationJeuAutomatique implements ActionListener {
             timer.stop();
         } else {
             generateur = new GenerateurCoups(jeu.niveau());
-            coups = generateur.solverAStar();
+            coups = generateur.solver_minDeplacementJoueur();
             timer.start();
         }
     }
