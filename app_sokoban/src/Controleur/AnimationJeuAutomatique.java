@@ -52,7 +52,7 @@ public class AnimationJeuAutomatique implements ActionListener {
         }
     }
 
-    public void toggleJump(){
+    public void toggleJump() {
         sauteCoups = !sauteCoups;
     }
 
@@ -66,24 +66,23 @@ public class AnimationJeuAutomatique implements ActionListener {
         Niveau tmp = jeu.niveau();
         if (!sauteCoups) {
             Coup c = coups.remove(0);
-            if (jeu.deplace(c.directionX(), c.directionY())) {
-                if (tmp == jeu.niveau()) {
-                    Coup dernierCoup = jeu.dernierCoup();
-                    if (dernierCoup.aCaisse()) {
-                        jeu.niveau().marqueAccessibles(jeu.niveau().pousseurL(), jeu.niveau().pousseurC());
-                    } else {
-                        jeu.niveau().resetMarques();
-                    }
-                    animationPousseur.nouvelleAnimation(dernierCoup.departPousseur(), dernierCoup.arriveePousseur());
-                    if (dernierCoup.aCaisse()) {
-                        animationCaisse.nouvelleAnimation(dernierCoup.departCaisse(), dernierCoup.arriveeCaisse());
-                    }
-                    inter.repaint();
+            jeu.niveau().jouerCoup(c, false);
+            if (tmp == jeu.niveau()) {
+                Coup dernierCoup = jeu.dernierCoup();
+                if (dernierCoup.aCaisse()) {
+                    jeu.niveau().marqueAccessibles(jeu.niveau().pousseurL(), jeu.niveau().pousseurC());
+                } else {
+                    jeu.niveau().resetMarques();
                 }
+                animationPousseur.nouvelleAnimation(dernierCoup.departPousseur(), dernierCoup.arriveePousseur());
+                if (dernierCoup.aCaisse()) {
+                    animationCaisse.nouvelleAnimation(dernierCoup.departCaisse(), dernierCoup.arriveeCaisse());
+                }
+                inter.repaint();
             }
         } else {
             Coup c = coups.remove(0);
-            while (!c.aCaisse()){
+            while (!c.aCaisse()) {
                 c = coups.remove(0);
             }
             jeu.niveau().jouerCoup(c, false);
