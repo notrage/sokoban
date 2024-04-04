@@ -35,7 +35,7 @@ public class GenerateurCoups {
                 situationsSet.add(s);
                 System.out.print("\r" + n_sit);
                 if (s.gagnante(niveau)) {
-                    System.out.println("\nVictoire avec " + n_sit + " situations explorées en "
+                    System.out.println("\rVictoire avec " + n_sit + " situations explorées en "
                             + s.totalDeplacementsJoueur + " deplacements de joueur et " + s.totalDeplacementsCaisses
                             + " deplacements de caisses");
                     return recuperationCoups(s);
@@ -49,7 +49,7 @@ public class GenerateurCoups {
                 }
             }
         }
-        System.out.println("Défaite avec " + n_sit + " situations explorées");
+        System.out.println("\rDéfaite avec " + n_sit + " situations explorées");
         return null;
     }
     
@@ -73,7 +73,7 @@ public class GenerateurCoups {
                 situationsSet.add(s);
                 System.out.print("\r" + n_sit);
                 if (s.gagnante(niveau)) {
-                    System.out.println("\nVictoire avec " + n_sit + " situations explorées en "
+                    System.out.println("\rVictoire avec " + n_sit + " situations explorées en "
                             + s.totalDeplacementsJoueur + " deplacements de joueur et " + s.totalDeplacementsCaisses
                             + " deplacements de caisses");
                     return recuperationCoups(s);
@@ -94,7 +94,7 @@ public class GenerateurCoups {
                 }
             }
         }
-        System.out.println("Défaite avec " + n_sit + " situations explorées");
+        System.out.println("\rDéfaite avec " + n_sit + " situations explorées");
         return null;
     } 
 
@@ -108,10 +108,11 @@ public class GenerateurCoups {
             s = f.remove();
             if (!situationsSet.contains(s)) {
                 situationsSet.add(s);
-                // System.out.print("\r" + n_sit);
+                System.out.print("\r" + n_sit);
                 if (s.gagnante(niveau)) {
-                    System.out.println("Victoire avec " + n_sit + " situations explorées");
-                    return recuperationCoups(s);
+                    System.out.println("\rVictoire avec " + n_sit + " situations explorées en "
+                            + s.totalDeplacementsJoueur + " deplacements de joueur et " + s.totalDeplacementsCaisses
+                            + " deplacements de caisses");
                 }
                 n_sit++;
                 Situation[] nextS = s.futurSituations(niveau, true);
@@ -122,7 +123,7 @@ public class GenerateurCoups {
                 }
             }
         }
-        System.out.println("Défaite avec " + n_sit + " situations explorées");
+        System.out.println("\rDéfaite avec " + n_sit + " situations explorées");
         return null;
     }
 

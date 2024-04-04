@@ -57,8 +57,13 @@ public class LecteurNiveau {
 					}
 				}
 			}
-			ligne = s.nextLine();
-			i++;
+			if (s.hasNextLine()){
+				ligne = s.nextLine();
+				i++;
+			} else {
+				ligne = "";
+			}
+
 		}
 		return n;
 	}

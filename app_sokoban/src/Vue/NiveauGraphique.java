@@ -120,8 +120,8 @@ public class NiveauGraphique extends JComponent {
 					drawable.drawImage(mur, x, y, largeurCase, hauteurCase, null);
 				}
 				if (niv.aMarque(j, i)) {
-					drawable.setColor(new Color(0xFF0000));
-					drawable.setStroke(new BasicStroke(10));
+					drawable.setColor(new Color(0x00FF00));
+					drawable.setStroke(new BasicStroke(5));
 					drawable.drawLine(x, y, x+largeurCase, y+hauteurCase);
 				}
 			}
@@ -197,9 +197,9 @@ public class NiveauGraphique extends JComponent {
 		changementImagePousseur.toggle();
 	}
 
-	public void toggleIA(int typeSolver) {
+	public void toggleIA(int typeSolver, boolean sauteCoups) {
 		modeia = !modeia;
-		ia.toggleIA(typeSolver);
+		ia.toggleIA(typeSolver, sauteCoups);
 	}
 
 	public boolean isIArunning() {

@@ -12,12 +12,13 @@ public class AdaptateurClavier extends KeyAdapter {
 	InterfaceGraphique inter;
 	Jeu jeu;
 	Animation animationPousseur, animationCaisse;
-
+	boolean sauteCoup;
 	public AdaptateurClavier(InterfaceGraphique i, Jeu j, Animation pousseur, Animation caisse) {
 		inter = i;
 		jeu = j;
 		animationPousseur = pousseur;
 		animationCaisse = caisse;
+		sauteCoup = false;
 	}
 
 	void deplace(int l, int c) {
@@ -41,7 +42,7 @@ public class AdaptateurClavier extends KeyAdapter {
 		if (inter.ng().isIArunning()) {
 			if (e.getKeyCode() == KeyEvent.VK_I || e.getKeyCode() == KeyEvent.VK_T || e.getKeyCode() == KeyEvent.VK_Y
 					|| e.getKeyCode() == KeyEvent.VK_U) {
-				inter.toggleIA(-1);
+				inter.toggleIA(-1, false);
 			}
 			return;
 		}
@@ -75,13 +76,13 @@ public class AdaptateurClavier extends KeyAdapter {
 				inter.toggleAnimation();
 				break;
 			case KeyEvent.VK_T:
-				inter.toggleIA(0);
+				inter.toggleIA(0, sauteCoup); // Min déplacement caisses BFS
 				break;
 			case KeyEvent.VK_Y:
-				inter.toggleIA(1);
+				inter.toggleIA(1, sauteCoup); // Min déplacement caisses A*
 				break;
 			case KeyEvent.VK_U:
-				inter.toggleIA(2);
+				inter.toggleIA(2, sauteCoup); // Min déplacemnt joueurs
 				break;
 			case KeyEvent.VK_M:
 				jeu.marquer(jeu.pousseurL(), jeu.pousseurC());
@@ -100,6 +101,14 @@ public class AdaptateurClavier extends KeyAdapter {
 				break;
 			case KeyEvent.VK_H:
 				jeu.afficherHeuristique();
+				break;
+			case KeyEvent.VK_J:
+				sauteCoup = !sauteCoup;
+				if (sauteCoup){
+					System.out.println("Désormais l'affichage saute les coups qui ne poussent pas de caisses");
+				} else {
+					System.out.println("Désormais l'affichage affiche tout les coups");
+				}
 				break;
 		}
 		inter.repaint();

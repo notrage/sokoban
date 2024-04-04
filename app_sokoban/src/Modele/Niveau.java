@@ -249,11 +249,11 @@ public class Niveau {
 		return nbCaisseSurBut == nbBut;
 	}
 
-	int pousseurL() {
+	public int pousseurL() {
 		return pousseurL;
 	}
 
-	int pousseurC() {
+	public int pousseurC() {
 		return pousseurC;
 	}
 
