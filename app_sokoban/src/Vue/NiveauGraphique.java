@@ -202,6 +202,10 @@ public class NiveauGraphique extends JComponent {
 		ia.toggleIA(typeSolver, sauteCoups);
 	}
 
+	public void toggleJump() {
+		ia.toggleJump();
+	}
+
 	public boolean isIArunning() {
 		return modeia;
 	}

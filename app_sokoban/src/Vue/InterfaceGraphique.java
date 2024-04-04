@@ -64,4 +64,8 @@ public class InterfaceGraphique implements Runnable {
 	public void toggleIA(int typeSolver, boolean sauteCoups){
 		ng.toggleIA(typeSolver, sauteCoups);
 	}
+
+	public void toggleJump(){
+		ng.toggleJump();
+	}
 }

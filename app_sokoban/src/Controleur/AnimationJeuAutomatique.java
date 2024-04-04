@@ -52,6 +52,10 @@ public class AnimationJeuAutomatique implements ActionListener {
         }
     }
 
+    public void toggleJump(){
+        sauteCoups = !sauteCoups;
+    }
+
     public void actionPerformed(ActionEvent evt) {
         if (coups == null || coups.size() <= 0) {
             return;

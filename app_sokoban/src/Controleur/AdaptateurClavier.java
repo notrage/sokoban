@@ -39,13 +39,6 @@ public class AdaptateurClavier extends KeyAdapter {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if (inter.ng().isIArunning()) {
-			if (e.getKeyCode() == KeyEvent.VK_I || e.getKeyCode() == KeyEvent.VK_T || e.getKeyCode() == KeyEvent.VK_Y
-					|| e.getKeyCode() == KeyEvent.VK_U) {
-				inter.toggleIA(-1, false);
-			}
-			return;
-		}
 		switch (e.getKeyCode()) {
 			case KeyEvent.VK_UP:
 				deplace(-1, 0);
@@ -104,6 +97,7 @@ public class AdaptateurClavier extends KeyAdapter {
 				break;
 			case KeyEvent.VK_J:
 				sauteCoup = !sauteCoup;
+				inter.toggleJump();
 				if (sauteCoup){
 					System.out.println("Désormais l'affichage saute les coups qui ne poussent pas de caisses");
 				} else {

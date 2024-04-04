@@ -25,8 +25,8 @@ public class GenerateurCoups {
         // création de la file à priorité pour notre parcours de graphe de situation
         PriorityQueue<Situation> fap = new PriorityQueue<Situation>(
                 (Situation s1, Situation s2) -> Integer.compare(
-                        s1.scoreHeuristique(),
-                        s2.scoreHeuristique()));
+                        s1.scoreHeuristique() + s1.totalDeplacementsCaisses,
+                        s2.scoreHeuristique() + s2.totalDeplacementsCaisses));
         fap.add(s);
         int n_sit = 0;
         while (!fap.isEmpty()) {
