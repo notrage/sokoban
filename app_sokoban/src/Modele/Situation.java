@@ -46,7 +46,7 @@ public class Situation {
         return totalDeplacementsJoueur;
     }
 
-    public Situation[] futurSituations(Niveau n) {
+    public Situation[] futurSituations(Niveau n, boolean isCaisseSituation ) {
         int[][] directions = { { 0, -1 }, { -1, 0 }, { 0, 1 }, { 1, 0 } };
         Situation[] fS = new Situation[positionCaisses.size() * 4];
         int idx = 0;
@@ -65,7 +65,7 @@ public class Situation {
                     Coup c = new Coup(departJoueur, arriveJoueur, arriveCaisse);
                     n.jouerCoup(c, false);
                     fS[idx] = n.toSituation(totalDeplacementsCaisses + 1,
-                            totalDeplacementsJoueur + nbDeplacementJoueur.get(caisse)[j] + 1);
+                            totalDeplacementsJoueur + nbDeplacementJoueur.get(caisse)[j] + 1, isCaisseSituation);
                     fS[idx].pere = this;
                     idx++;
                     n.annulerDernierCoup();

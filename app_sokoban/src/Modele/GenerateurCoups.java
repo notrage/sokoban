@@ -19,7 +19,7 @@ public class GenerateurCoups {
     }
 
     public ArrayList<Coup> solver_minDeplacementCaisse() {
-        Situation s = niveau.toSituation(0, 0);
+        Situation s = niveau.toSituation(0, 0, true);
         HashSet<Situation> situationsSet = new HashSet<>();
         
         // création de la file à priorité pour notre parcours de graphe de situation
@@ -41,7 +41,7 @@ public class GenerateurCoups {
                     return recuperationCoups(s);
                 }
                 n_sit++;
-                Situation[] nextS = s.futurSituations(niveau);
+                Situation[] nextS = s.futurSituations(niveau, true);
                 for (int i = 0; i < nextS.length; i++) {
                     if (nextS[i] != null) {
                         fap.add(nextS[i]);
@@ -56,12 +56,12 @@ public class GenerateurCoups {
     
 
     public ArrayList<Coup> solver_minDeplacementJoueur() {
-        SituationDepCaisse s =  new SituationDepCaisse(niveau.toSituation(0, 0));
-        HashSet<SituationDepCaisse> situationsSet = new HashSet<>();
-        HashMap<SituationDepCaisse, Integer> distance = new HashMap<>();
+        Situation s =  niveau.toSituation(0, 0, false);
+        HashSet<Situation> situationsSet = new HashSet<>();
+        HashMap<Situation, Integer> distance = new HashMap<>();
         // création de la file à priorité pour notre parcours de graphe de situation
-        PriorityQueue<SituationDepCaisse> fap = new PriorityQueue<SituationDepCaisse>(
-                (SituationDepCaisse s1, SituationDepCaisse s2) -> Integer.compare(
+        PriorityQueue<Situation> fap = new PriorityQueue<Situation>(
+                (Situation s1, Situation s2) -> Integer.compare(
                         distance.get(s1) + s1.scoreHeuristique(),
                         distance.get(s2) + s2.scoreHeuristique()));
         distance.put(s, 0);
@@ -79,17 +79,16 @@ public class GenerateurCoups {
                     return recuperationCoups(s);
                 }
                 n_sit++;
-                Situation[] nextS =  s.futurSituations(niveau);
+                Situation[] nextS =  s.futurSituations(niveau, false);
                 for (int i = 0; i < nextS.length; i++) {
                     if (nextS[i] != null) { 
-                        SituationDepCaisse nexts = new SituationDepCaisse(nextS[i]);
-                        if (!distance.containsKey(nexts)){
-                            distance.put(nexts, nexts.totalDeplacementsJoueur);
-                            fap.add(nexts);
-                        } else if (distance.get(nexts) > nexts.totalDeplacementsJoueur){
-                            distance.put(nexts, nexts.totalDeplacementsJoueur);
-                            fap.remove(nexts);
-                            fap.add(nexts);
+                        if (!distance.containsKey(nextS[i])){
+                            distance.put(nextS[i], nextS[i].totalDeplacementsJoueur);
+                            fap.add(nextS[i]);
+                        } else if (distance.get(nextS[i]) > nextS[i].totalDeplacementsJoueur){
+                            distance.put(nextS[i], nextS[i].totalDeplacementsJoueur);
+                            fap.remove(nextS[i]);
+                            fap.add(nextS[i]);
                         }
                     }
                 }
@@ -100,7 +99,7 @@ public class GenerateurCoups {
     } 
 
     public ArrayList<Coup> solver_BFS() {
-        Situation s = niveau.toSituation(0, 0);
+        Situation s = niveau.toSituation(0, 0, true);
         HashSet<Situation> situationsSet = new HashSet<>();
         Queue<Situation> f = new LinkedList<>();
         f.add(s);
@@ -108,7 +107,6 @@ public class GenerateurCoups {
         while (!f.isEmpty()) {
             s = f.remove();
             if (!situationsSet.contains(s)) {
-                System.out.println(s);
                 situationsSet.add(s);
                 // System.out.print("\r" + n_sit);
                 if (s.gagnante(niveau)) {
@@ -116,7 +114,7 @@ public class GenerateurCoups {
                     return recuperationCoups(s);
                 }
                 n_sit++;
-                Situation[] nextS = s.futurSituations(niveau);
+                Situation[] nextS = s.futurSituations(niveau, true);
                 for (int i = 0; i < nextS.length; i++) {
                     if (nextS[i] != null) {
                         f.add(nextS[i]);

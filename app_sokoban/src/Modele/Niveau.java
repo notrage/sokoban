@@ -338,7 +338,7 @@ public class Niveau {
 			if (!pC.containsKey(caisse)) {
 				pC.put(caisse, 0);
 			}
-			if (!dJ.containsKey(caisse)){
+			if (!dJ.containsKey(caisse)) {
 				dJ.put(caisse, new int[4]);
 			}
 			for (int j = 0; j < 4; j++) {
@@ -370,7 +370,8 @@ public class Niveau {
 		}
 	}
 
-	public Situation toSituation(int totalDeplacementsCaisses, int totalDeplacementsJoueur) {
+	public Situation toSituation(int totalDeplacementsCaisses, int totalDeplacementsJoueur, 
+			boolean isCaisseSituation) {
 		resetMarques();
 		marqueAccessibles(pousseurL, pousseurC);
 		genereHeuristique();
@@ -381,8 +382,13 @@ public class Niveau {
 		HashMap<Point, Integer> pC = new HashMap<>();
 		HashMap<Point, int[]> dJ = new HashMap<>();
 		deplacementsCaisses(pC, dJ);
-		return new Situation(pC, new Point(pousseurL(), pousseurC()),
+		if (isCaisseSituation){
+			return new SituationDepCaisse(pC, new Point(pousseurL(), pousseurC()),
+			score_heuristique, totalDeplacementsCaisses, dJ, totalDeplacementsJoueur);
+		} else {
+			return new SituationDepJoueur(pC, new Point(pousseurL(), pousseurC()),
 				score_heuristique, totalDeplacementsCaisses, dJ, totalDeplacementsJoueur);
+		}
 	}
 
 	Marque[][] marques() {
@@ -396,7 +402,7 @@ public class Niveau {
 				if (aMur(i, j))
 					System.out.print("#  ");
 				else if (heuristique[i][j] == Integer.MAX_VALUE)
-					System.out.print("X  ");
+					System.out.print("∞  ");
 				else if (heuristique[i][j] >= 10)
 					System.out.print(heuristique[i][j] + " ");
 				else

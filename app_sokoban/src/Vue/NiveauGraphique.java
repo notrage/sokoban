@@ -197,9 +197,9 @@ public class NiveauGraphique extends JComponent {
 		changementImagePousseur.toggle();
 	}
 
-	public void toggleIA() {
+	public void toggleIA(int typeSolver) {
 		modeia = !modeia;
-		ia.toggleIA();
+		ia.toggleIA(typeSolver);
 	}
 
 	public boolean isIArunning() {

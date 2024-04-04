@@ -30,12 +30,21 @@ public class AnimationJeuAutomatique implements ActionListener {
         timer = new Timer(500, this);
     }
 
-    public void toggleIA() {
+    public void toggleIA(int typeSolver) {
         if (timer.isRunning()) {
             timer.stop();
         } else {
             generateur = new GenerateurCoups(jeu.niveau());
-            coups = generateur.solver_minDeplacementJoueur();
+            if (typeSolver == 0) {
+                System.out.println("Lancement solver minimisant les deplacements des caisses (BFS naïf)");
+                coups = generateur.solver_BFS();
+            } else if (typeSolver == 1) {
+                System.out.println("Lancement solver minimisant les deplacements des caisses (A*)");
+                coups = generateur.solver_minDeplacementCaisse();
+            } else {
+                System.out.println("Lancement solver minimisant les deplacements du joueur (A*)");
+                coups = generateur.solver_minDeplacementJoueur();
+            }
             timer.start();
         }
     }

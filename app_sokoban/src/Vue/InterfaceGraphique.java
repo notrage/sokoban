@@ -61,7 +61,7 @@ public class InterfaceGraphique implements Runnable {
 		ng.toggleAnimation();
 	}
 
-	public void toggleIA(){
-		ng.toggleIA();
+	public void toggleIA(int typeSolver){
+		ng.toggleIA(typeSolver);
 	}
 }

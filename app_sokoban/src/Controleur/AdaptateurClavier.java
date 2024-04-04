@@ -39,8 +39,9 @@ public class AdaptateurClavier extends KeyAdapter {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if (inter.ng().isIArunning()) {
-			if (e.getKeyCode() == KeyEvent.VK_I) {
-				inter.toggleIA();
+			if (e.getKeyCode() == KeyEvent.VK_I || e.getKeyCode() == KeyEvent.VK_T || e.getKeyCode() == KeyEvent.VK_Y
+					|| e.getKeyCode() == KeyEvent.VK_U) {
+				inter.toggleIA(-1);
 			}
 			return;
 		}
@@ -73,8 +74,14 @@ public class AdaptateurClavier extends KeyAdapter {
 			case KeyEvent.VK_W:
 				inter.toggleAnimation();
 				break;
-			case KeyEvent.VK_I:
-				inter.toggleIA();
+			case KeyEvent.VK_T:
+				inter.toggleIA(0);
+				break;
+			case KeyEvent.VK_Y:
+				inter.toggleIA(1);
+				break;
+			case KeyEvent.VK_U:
+				inter.toggleIA(2);
 				break;
 			case KeyEvent.VK_M:
 				jeu.marquer(jeu.pousseurL(), jeu.pousseurC());
