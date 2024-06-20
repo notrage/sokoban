@@ -18,19 +18,19 @@ javac -cp :./src/:./res/ ./src/Sokoban.java
 java -cp :./src/:./res/ Sokoban
 ```
 ## In Game Keybinds
-Quit : **A** / **Q**
-Fullsceen mode : **Esc**
-Cancel the last move : **Delete** / **Backspace**
-Redo the last canceled move : **Enter**
-Toggle animation : **W**
-Toggle naive Depth-First Search (DFS) AI : **T**
-Toggle AI minimizing the number of time a box moves (A* algorithm) : **Y**
-Toggle AI minimizing the number of times the player moves (A* algorithm) : **U**
-Mark the current case : **M**
-Remove all field marks : **R**
-Display all the boxs positions in the console : **C**
-Toggle teleportation of the player when using AI mode : **J**
-Go to the next level : **N**
+- Quit : **A** / **Q**
+- Fullsceen mode : **Esc**
+- Cancel the last move : **Delete** / **Backspace**
+- Redo the last canceled move : **Enter**
+- Toggle animation : **W**
+- Toggle naive Depth-First Search (DFS) AI : **T**
+- Toggle AI minimizing the number of time a box moves (A* algorithm) : **Y**
+- Toggle AI minimizing the number of times the player moves (A* algorithm) : **U**
+- Mark the current case : **M**
+- Remove all field marks : **R**
+- Display all the boxs positions in the console : **C**
+- Toggle teleportation of the player when using AI mode : **J**
+- Go to the next level : **N**
 ## Notes
 - An AI does not automatically move to the next level so that you can observe the result, so use N
 - When you change levels, remember to toggle off/on the AI to restart it
