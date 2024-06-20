@@ -31,7 +31,7 @@ java -cp :./src/:./res/ Sokoban
 - Display all the boxs positions in the console : **C**
 - Toggle teleportation of the player when using AI mode : **J**
 - Go to the next level : **N**
-## Notes
+## Notes
 - An AI does not automatically move to the next level so that you can observe the result, so use N
 - When you change levels, remember to toggle off/on the AI to restart it
 - Once an AI is launched, you can't interrupt it until it finds a solution (or lack thereof), you can toggle the display of all moves while they are being executed by the AI
